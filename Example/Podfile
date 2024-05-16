@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'PhoenixSDK_Example' do
+  pod 'PhoenixSDK', :path => '../'
+
+  target 'PhoenixSDK_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
