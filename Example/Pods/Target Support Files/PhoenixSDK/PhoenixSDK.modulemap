@@ -1,0 +1,6 @@
+framework module PhoenixSDK {
+  umbrella header "PhoenixSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

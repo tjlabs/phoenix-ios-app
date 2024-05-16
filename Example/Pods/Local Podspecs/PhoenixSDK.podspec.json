@@ -1,0 +1,22 @@
+{
+  "name": "PhoenixSDK",
+  "version": "0.1.0",
+  "summary": "A short description of PhoenixSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/tjlabs-dev/PhoenixSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "tjlabs-dev": "dev@tjlabscorp.com"
+  },
+  "source": {
+    "git": "https://github.com/tjlabs-dev/PhoenixSDK.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "PhoenixSDK/Classes/**/*"
+}
