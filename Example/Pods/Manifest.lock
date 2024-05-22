@@ -1,5 +1,5 @@
 PODS:
-  - PhoenixSDK (0.1.0)
+  - PhoenixSDK (0.0.1)
 
 DEPENDENCIES:
   - PhoenixSDK (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  PhoenixSDK: 66b3c53024c8a3fe13b9a0cc523c0b69a823f834
+  PhoenixSDK: 20e91fa4e74899bc7405f8fbb5a741090bbafac8
 
-PODFILE CHECKSUM: fee482370e57e28e0997b803744a8ef18c1797ce
+PODFILE CHECKSUM: 7422b6e11bd9a4d98841cebe552cedcaf3a0f214
 
 COCOAPODS: 1.14.3
