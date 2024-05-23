@@ -9,11 +9,15 @@
 import SwiftUI
 
 struct NewView: View {
+    @Binding var stack: NavigationPath
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack() {
+            Text("Stack : ")
+        }
     }
 }
 
-#Preview {
-    NewView()
-}
+//#Preview {
+//    NewView()
+//}

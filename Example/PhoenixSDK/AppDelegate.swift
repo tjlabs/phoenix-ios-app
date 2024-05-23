@@ -11,14 +11,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let containerView = ContainerView()
-
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: containerView)
-            self.window = window
-            window.makeKeyAndVisible()
-        }
+//        let mainView = LoginView()
+//
+//        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+//            let window = UIWindow(windowScene: windowScene)
+//            window.rootViewController = UIHostingController(rootView: mainView)
+//            self.window = window
+//            window.makeKeyAndVisible()
+//        }
         
         return true
     }
