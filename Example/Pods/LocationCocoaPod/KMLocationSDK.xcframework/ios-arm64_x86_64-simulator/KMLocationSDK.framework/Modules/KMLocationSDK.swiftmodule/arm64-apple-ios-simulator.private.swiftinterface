@@ -1,0 +1,350 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name KMLocationSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Accelerate
+import CoreData
+import CoreLocation
+import CoreMotion
+import CoreTelephony
+import Darwin
+import Foundation
+@_exported import KMLocationSDK
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@objc public enum KMInOutStatus : Swift.Int {
+  case UNKNOWN = -1
+  case OUTDOOR = 0
+  case INDOOR = 1
+  case OUT_TO_IN = 2
+  case IN_TO_OUT = 3
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum KMFeatureAvailability : Swift.Int {
+  case INDOOR
+  case RAPID_CHANGE
+  case MOTION_ACTIVITY
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum KMSIMStatus : Swift.Int {
+  case READY_DATA
+  case EMPTY_DATA
+  case FAIL
+  case PLAYING
+  case FINISHED
+  case PAUSED
+  case NOT_STARTED
+  case NO_PERMISSION
+  case NO_PERMISSION_BLUETOOTH
+  case INDOOR_AVAILABLE
+  case INDOOR_UNAVAILABLE
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum KMRapidChangedEvent : Swift.Int {
+  case UNKNOWN
+  case RAPID_ACCEL
+  case RAPID_DECEL
+  case RAPID_LANE_CHANGE
+  case RAPID_OVERTAKING
+  case RAPID_TURN
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+precedencegroup EquivalencePrecedence {
+  higherThan: ComparisonPrecedence
+  lowerThan: AdditionPrecedence
+}
+infix operator ==~ : EquivalencePrecedence
+infix operator !=~ : EquivalencePrecedence
+infix operator <=~ : ComparisonPrecedence
+infix operator >=~ : ComparisonPrecedence
+infix operator <~ : ComparisonPrecedence
+infix operator >~ : ComparisonPrecedence
+infix operator %% : MultiplicationPrecedence
+@objc public class KMConfig : ObjectiveC.NSObject {
+  @objc final public let auth: KMLocationSDK.KMAuth
+  @objc final public let dev: KMLocationSDK.KMDev
+  @objc final public let algorithm: KMLocationSDK.KMAlgorithm
+  @objc final public let feature: KMLocationSDK.KMFeature
+  @objc public init(auth: KMLocationSDK.KMAuth, dev: KMLocationSDK.KMDev, algorithm: KMLocationSDK.KMAlgorithm, feature: KMLocationSDK.KMFeature)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@objc public enum KMSimDataSource : Swift.Int {
+  case CONNECTION
+  case CONNECTION_CBT
+  case TRIP
+  case TRIP_CBT
+  case TENTH_CBT
+  case TENTH_SBX
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class KMIndoorLocInfo : ObjectiveC.NSObject {
+  @objc public var parkingLotId: Swift.Int
+  @objc public var floorDisplayName: Swift.String
+  @objc public var sourceCode: Swift.String
+  @objc public var inOutStatus: KMLocationSDK.KMInOutStatus
+  @objc public var parkingZone: Swift.String
+  @objc override dynamic public init()
+  @objc public init(parkingLotId: Swift.Int = -1, floorDisplayName: Swift.String = "", sourceCode: Swift.String = "", inOutStatus: KMLocationSDK.KMInOutStatus = .UNKNOWN, parkingZone: Swift.String = "")
+  @objc deinit
+}
+@objc public enum KMMotionActivity : Swift.Int {
+  case UNKNOWN
+  case VEHICLE
+  case STOPPED
+  case WALKING
+  case RUNNING
+  case BICYCLE
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol KMLocationSimManagerDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func kmLocationSimManager(_ manager: KMLocationSDK.KMLocationSimManager, didChangeSimStatus status: KMLocationSDK.KMSIMStatus, error: Swift.Error?)
+  @objc func kmLocationSimManager(_ manager: KMLocationSDK.KMLocationSimManager, didUpdate startDate: Foundation.Date, endDate: Foundation.Date)
+  @objc func kmLocationSimManager(_ manager: KMLocationSDK.KMLocationSimManager, didUpdateSimLocations locations: [KMLocationSDK.KMLocation])
+}
+@_hasMissingDesignatedInitializers @objc public class KMLocationSimManager : ObjectiveC.NSObject {
+  @objc weak public var delegate: KMLocationSDK.KMLocationSimManagerDelegate?
+  @objc public var updateInterval: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc public var simStatus: KMLocationSDK.KMSIMStatus
+  @objc public var locations: [KMLocationSDK.KMLocation] {
+    @objc get
+  }
+  @objc public var simGoal: KMLocationSDK.KMLocation? {
+    @objc get
+  }
+  @objc public var playSpeed: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+  @objc public func play()
+  @objc public func pause()
+  @objc public func skip(to date: Foundation.Date)
+  @objc public func stop()
+  @objc public func isFeatureAvailable(_ featureAvailability: KMLocationSDK.KMFeatureAvailability) -> Swift.Bool
+  @objc public func sendExternalIndoorLog(code: Swift.Int, logMsg: Swift.String)
+}
+@_hasMissingDesignatedInitializers @objc public class KMLocation : CoreLocation.CLLocation {
+  @objc public var provider: Swift.String
+  @objc public var isValid: Swift.Bool
+  @objc public var filter: KMLocationSDK.KMFilter
+  @objc public var openSkyAccuracy: Swift.Double
+  @objc public var latestMeasuredTime: Foundation.Date
+  @objc public var estimatedTimeLag: Swift.Double
+  @objc public var indoorLocInfo: KMLocationSDK.KMIndoorLocInfo?
+  @available(iOS 13.4, *)
+  @objc convenience public init(coordinate: CoreLocation.CLLocationCoordinate2D, altitude: CoreLocation.CLLocationDistance, horizontalAccuracy: CoreLocation.CLLocationAccuracy, verticalAccuracy: CoreLocation.CLLocationAccuracy, course: CoreLocation.CLLocationDirection, courseAccuracy: CoreLocation.CLLocationDirectionAccuracy, speed: CoreLocation.CLLocationSpeed, speedAccuracy: CoreLocation.CLLocationSpeedAccuracy, timestamp: Foundation.Date, provider: Swift.String, isValid: Swift.Bool, filter: KMLocationSDK.KMFilter, latestMeasuredTime: Foundation.Date? = nil, estimatedTimeLag: Swift.Double = 0.0, indoorLocInfo: KMLocationSDK.KMIndoorLocInfo? = nil, openSkyAccuracy: Swift.Double = 0.6)
+  @objc convenience public init(coordinate: CoreLocation.CLLocationCoordinate2D, altitude: CoreLocation.CLLocationDistance, horizontalAccuracy: CoreLocation.CLLocationAccuracy, verticalAccuracy: CoreLocation.CLLocationAccuracy, course: CoreLocation.CLLocationDirection, speed: CoreLocation.CLLocationSpeed, timestamp: Foundation.Date, provider: Swift.String, isValid: Swift.Bool, filter: KMLocationSDK.KMFilter, latestMeasuredTime: Foundation.Date? = nil, estimatedTimeLag: Swift.Double = 0.0, indoorLocInfo: KMLocationSDK.KMIndoorLocInfo? = nil, openSkyAccuracy: Swift.Double = 0.6)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class KMDev : ObjectiveC.NSObject {
+  @objc final public let useSandbox: Swift.Bool
+  @objc final public let useConsoleLog: Swift.Bool
+  @objc public init(useSandbox: Swift.Bool, useConsoleLog: Swift.Bool)
+  @objc public init(useSandbox: Swift.Bool)
+  @objc public init(useConsoleLog: Swift.Bool)
+  @objc override dynamic public init()
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+infix operator .* : MultiplicationPrecedence
+infix operator ./ : MultiplicationPrecedence
+infix operator ./. : MultiplicationPrecedence
+postfix operator ′
+infix operator ||| : DefaultPrecedence
+@objc public protocol KMLocationManagerDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func kmLocationManager(_ manager: KMLocationSDK.KMLocationManager, didChangeAuthorization status: CoreLocation.CLAuthorizationStatus)
+  @objc func kmLocationManager(_ manager: KMLocationSDK.KMLocationManager, didChangeStatus status: KMLocationSDK.KMStatus, error: Swift.Error?)
+  @objc func kmLocationManager(_ manager: KMLocationSDK.KMLocationManager, didUpdateLocations locations: [KMLocationSDK.KMLocation])
+  @objc func kmLocationManager(_ manager: KMLocationSDK.KMLocationManager, didUpdateRawLocations clLocations: [CoreLocation.CLLocation])
+  @objc func kmLocationManager(_ manager: KMLocationSDK.KMLocationManager, didChangeRapidSensor rapidChangedEvent: KMLocationSDK.KMRapidChangedEvent)
+  @objc func kmLocationManager(_ manager: KMLocationSDK.KMLocationManager, didDetectMotionActivity motionActivity: KMLocationSDK.KMMotionActivity)
+  @objc func kmLocationManager(_ manager: KMLocationSDK.KMLocationManager, didFailWithError error: Swift.Error)
+}
+@_hasMissingDesignatedInitializers @objc public class KMLocationManager : ObjectiveC.NSObject {
+  @objc weak public var delegate: KMLocationSDK.KMLocationManagerDelegate?
+  @objc public static let libraryVersion: Swift.String
+  @objc public static func getAlgoVersion(kmFilter: KMLocationSDK.KMFilter) -> Swift.String
+  @objc public var authorizationStatus: CoreLocation.CLAuthorizationStatus {
+    @objc get
+  }
+  @objc public var desiredAccuracy: CoreLocation.CLLocationAccuracy {
+    @objc get
+    @objc set
+  }
+  @objc public var allowsBackgroundLocationUpdates: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var showsBackgroundLocationIndicator: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var config: KMLocationSDK.KMConfig {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+  @objc public func requestWhenInUseAuthorization()
+  @objc public func startLocationManager()
+  @objc public func stopLocationManager()
+  @objc public func isFeatureAvailable(_ featureAvailability: KMLocationSDK.KMFeatureAvailability) -> Swift.Bool
+  @objc public func startTrip(transId: Swift.String)
+  @objc public func stopTrip()
+  @objc public func setRouteId(routeId: Swift.String)
+  @objc public func onAppBackgrounded(needLocationUpdate: Swift.Bool)
+  @objc public func onAppForegrounded()
+  @objc public func sendExternalIndoorLog(code: Swift.Int, logMsg: Swift.String)
+  @objc public func setCarConnected(_ connected: Swift.Bool)
+}
+@_inheritsConvenienceInitializers @objc public class KMAlgorithm : ObjectiveC.NSObject {
+  @objc final public let filter: KMLocationSDK.KMFilter
+  @objc final public let updateInterval: Swift.Double
+  @objc public init(filter: KMLocationSDK.KMFilter, updateInterval: Swift.Double)
+  @objc public init(updateInterval: Swift.Double)
+  @objc public init(filter: KMLocationSDK.KMFilter)
+  @objc override dynamic public init()
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@objc public class KMAuth : ObjectiveC.NSObject {
+  @objc dynamic public var authToken: Swift.String
+  @objc final public let appId: Swift.String
+  @objc final public let serviceId: Swift.String
+  @objc dynamic public var userId: Swift.String
+  @objc public init(appId: Swift.String, serviceId: Swift.String, userId: Swift.String)
+  @objc public init(serviceId: Swift.String, userId: Swift.String)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@objc public enum KMFilter : Swift.Int {
+  case GPS
+  case VEHICLE
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class KMFeature : ObjectiveC.NSObject {
+  @objc final public let useRapidChangedEvent: Swift.Bool
+  @objc final public let useMotionActivity: Swift.Bool
+  @objc dynamic public var useIndoorLocation: Swift.Bool
+  @objc public init(useRapidChangedEvent: Swift.Bool, useMotionActivity: Swift.Bool, useIndoorLocation: Swift.Bool)
+  @objc public init(useMotionActivity: Swift.Bool, useIndoorLocation: Swift.Bool)
+  @objc public init(useRapidChangedEvent: Swift.Bool, useIndoorLocation: Swift.Bool)
+  @objc public init(useRapidChangedEvent: Swift.Bool, useMotionActivity: Swift.Bool)
+  @objc override dynamic public init()
+  @objc public init(useRapidChangedEvent: Swift.Bool)
+  @objc public init(useMotionActivity: Swift.Bool)
+  @objc public init(useIndoorLocation: Swift.Bool)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class LocationSDK : ObjectiveC.NSObject {
+  @objc public static func registerAndStartLocationManager(identifier: Swift.String, didUpdateLocationsHandler: @escaping ([KMLocationSDK.KMLocation]) -> ())
+  @objc public static func unregisterAndStopLocationManager(identifier: Swift.String)
+  @objc public static func getManagerInstance(config: KMLocationSDK.KMConfig) -> KMLocationSDK.KMLocationManager
+  @objc public static func getManagerInstance(config: KMLocationSDK.KMConfig, completionHandler: @escaping (KMLocationSDK.KMLocationManager) -> ()) -> KMLocationSDK.KMLocationManager
+  @objc public static func getSimManagerInstance(date: Swift.String, reqId: Swift.String, source: KMLocationSDK.KMSimDataSource, filter: KMLocationSDK.KMFilter) -> KMLocationSDK.KMLocationSimManager
+  @objc deinit
+}
+@objc public enum KMStatus : Swift.Int {
+  case SUCCESS
+  case ERROR
+  case NO_PERMISSION
+  case NO_PERMISSION_MOTION_ACTIVITY
+  case NO_PERMISSION_BLUETOOTH
+  case LOCATION_INACTIVATE
+  case LOCATION_ACTIVATE
+  case INVALID_AUTH_TOKEN
+  case ALREADY_STARTED
+  case GET_CONFIG_SUCCESS
+  case DISABLE_INDOOR_SERVER
+  case INVALID_FILTER_INDOOR
+  case INDOOR_SDK_INITIALIZATION_ERROR
+  case INDOOR_AVAILABLE
+  case INDOOR_UNAVAILABLE
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension KMLocationSDK.KMInOutStatus : Swift.Equatable {}
+extension KMLocationSDK.KMInOutStatus : Swift.Hashable {}
+extension KMLocationSDK.KMInOutStatus : Swift.RawRepresentable {}
+extension KMLocationSDK.KMFeatureAvailability : Swift.Equatable {}
+extension KMLocationSDK.KMFeatureAvailability : Swift.Hashable {}
+extension KMLocationSDK.KMFeatureAvailability : Swift.RawRepresentable {}
+extension KMLocationSDK.KMSIMStatus : Swift.Equatable {}
+extension KMLocationSDK.KMSIMStatus : Swift.Hashable {}
+extension KMLocationSDK.KMSIMStatus : Swift.RawRepresentable {}
+extension KMLocationSDK.KMRapidChangedEvent : Swift.Equatable {}
+extension KMLocationSDK.KMRapidChangedEvent : Swift.Hashable {}
+extension KMLocationSDK.KMRapidChangedEvent : Swift.RawRepresentable {}
+extension KMLocationSDK.KMSimDataSource : Swift.Equatable {}
+extension KMLocationSDK.KMSimDataSource : Swift.Hashable {}
+extension KMLocationSDK.KMSimDataSource : Swift.RawRepresentable {}
+extension KMLocationSDK.KMMotionActivity : Swift.Equatable {}
+extension KMLocationSDK.KMMotionActivity : Swift.Hashable {}
+extension KMLocationSDK.KMMotionActivity : Swift.RawRepresentable {}
+extension KMLocationSDK.KMFilter : Swift.Equatable {}
+extension KMLocationSDK.KMFilter : Swift.Hashable {}
+extension KMLocationSDK.KMFilter : Swift.RawRepresentable {}
+extension KMLocationSDK.KMStatus : Swift.Equatable {}
+extension KMLocationSDK.KMStatus : Swift.Hashable {}
+extension KMLocationSDK.KMStatus : Swift.RawRepresentable {}

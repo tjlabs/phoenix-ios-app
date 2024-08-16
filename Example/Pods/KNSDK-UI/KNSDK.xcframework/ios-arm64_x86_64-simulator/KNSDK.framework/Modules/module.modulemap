@@ -1,0 +1,4 @@
+framework module KNSDKManager {
+  header "KNSDKManager-Swift.h"
+  requires objc
+}

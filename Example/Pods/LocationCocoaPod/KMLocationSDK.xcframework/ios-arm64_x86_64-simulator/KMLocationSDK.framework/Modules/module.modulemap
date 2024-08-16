@@ -1,0 +1,11 @@
+framework module KMLocationSDK {
+  umbrella header "KMLocationSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module KMLocationSDK.Swift {
+  header "KMLocationSDK-Swift.h"
+  requires objc
+}

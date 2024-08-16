@@ -1,12 +1,6 @@
-//
-//  AppDelegate.swift
-//  PhoenixSDK
-//
-//  Created by tjlabs-dev on 05/16/2024.
-//  Copyright (c) 2024 tjlabs-dev. All rights reserved.
-//
 
 import UIKit
+import SwiftUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,8 +8,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        let mainView = LoginView()
+//
+//        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+//            let window = UIWindow(windowScene: windowScene)
+//            window.rootViewController = UIHostingController(rootView: mainView)
+//            self.window = window
+//            window.makeKeyAndVisible()
+//        }
+        
         return true
     }
 

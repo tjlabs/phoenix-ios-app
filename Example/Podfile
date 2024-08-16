@@ -1,9 +1,23 @@
 use_frameworks!
 
-platform :ios, '10.0'
+platform :ios, '16.0'
+
+# source 'https://github.com/CocoaPods/Specs.git'
 
 target 'PhoenixSDK_Example' do
+  use_frameworks!
+
   pod 'PhoenixSDK', :path => '../'
+  
+  pod 'KNSDK-UI'
+  pod 'SnapKit' 
+  pod 'Then' 
+  pod 'RxSwift', '~> 6.5.0'
+  pod 'RxCocoa', '~> 6.5.0'
+  pod 'Alamofire' 
+  pod 'JupiterSDK', '3.4.5.1'
+  pod 'lottie-ios'
+  pod 'Charts'
 
   target 'PhoenixSDK_Tests' do
     inherit! :search_paths
