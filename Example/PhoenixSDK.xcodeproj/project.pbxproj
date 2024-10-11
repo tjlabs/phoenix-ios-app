@@ -28,6 +28,8 @@
 		B35A9ED72C57831D0008F3FE /* JupiterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A9ED62C57831D0008F3FE /* JupiterModel.swift */; };
 		B35A9ED92C5788A00008F3FE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A9ED82C5788A00008F3FE /* UIImageExtension.swift */; };
 		B35A9EDD2C59D8AF0008F3FE /* COEX_B2.csv in Resources */ = {isa = PBXBuildFile; fileRef = B35A9EDC2C59D8AE0008F3FE /* COEX_B2.csv */; };
+		B36AE8662CA55497005B21A2 /* AddNewSectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36AE8652CA55497005B21A2 /* AddNewSectorView.swift */; };
+		B36AE8682CA554B4005B21A2 /* AddNewSectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36AE8672CA554B4005B21A2 /* AddNewSectorViewModel.swift */; };
 		B37224432C51DA14008CAB2F /* DestinationDataCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37224422C51DA14008CAB2F /* DestinationDataCellViewModel.swift */; };
 		B37224452C5205ED008CAB2F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37224442C5205ED008CAB2F /* UIColorExtension.swift */; };
 		B37224472C5205FC008CAB2F /* UIControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37224462C5205FC008CAB2F /* UIControlExtension.swift */; };
@@ -83,6 +85,8 @@
 		B35A9ED62C57831D0008F3FE /* JupiterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JupiterModel.swift; sourceTree = "<group>"; };
 		B35A9ED82C5788A00008F3FE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		B35A9EDC2C59D8AE0008F3FE /* COEX_B2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COEX_B2.csv; sourceTree = "<group>"; };
+		B36AE8652CA55497005B21A2 /* AddNewSectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSectorView.swift; sourceTree = "<group>"; };
+		B36AE8672CA554B4005B21A2 /* AddNewSectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSectorViewModel.swift; sourceTree = "<group>"; };
 		B37224422C51DA14008CAB2F /* DestinationDataCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDataCellViewModel.swift; sourceTree = "<group>"; };
 		B37224442C5205ED008CAB2F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		B37224462C5205FC008CAB2F /* UIControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlExtension.swift; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 				B333F3BE2C4F75CA00495539 /* MyInfoView.swift */,
 				B372244A2C520651008CAB2F /* PopUpViewController.swift */,
 				B37224582C539DC9008CAB2F /* JupiterServiceViewController.swift */,
+				B36AE8652CA55497005B21A2 /* AddNewSectorView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			children = (
 				B333F3B42C4F4F0A00495539 /* DestinationViewModel.swift */,
 				B37224422C51DA14008CAB2F /* DestinationDataCellViewModel.swift */,
+				B36AE8672CA554B4005B21A2 /* AddNewSectorViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -508,6 +514,8 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				B35A9ED52C5782F10008F3FE /* ImageCacheManager.swift in Sources */,
 				B3BA95F72BFF26D1002625FA /* VGSViewController.swift in Sources */,
+				B36AE8682CA554B4005B21A2 /* AddNewSectorViewModel.swift in Sources */,
+				B36AE8662CA55497005B21A2 /* AddNewSectorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
