@@ -14,6 +14,17 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		B32CF74B2CB90C7200A8FA0E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32CF74A2CB90C7200A8FA0E /* RootViewController.swift */; };
+		B32CF7612CB9109B00A8FA0E /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B32CF7602CB9109B00A8FA0E /* Pretendard-Black.otf */; };
+		B32CF76A2CB910AE00A8FA0E /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B32CF7662CB910AE00A8FA0E /* Pretendard-Medium.otf */; };
+		B32CF76B2CB910AE00A8FA0E /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B32CF7622CB910AE00A8FA0E /* Pretendard-Bold.otf */; };
+		B32CF76C2CB910AE00A8FA0E /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = B32CF7692CB910AE00A8FA0E /* Pretendard-Thin.otf */; };
+		B32CF76D2CB910AE00A8FA0E /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B32CF7632CB910AE00A8FA0E /* Pretendard-ExtraBold.otf */; };
+		B32CF76E2CB910AE00A8FA0E /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B32CF7672CB910AE00A8FA0E /* Pretendard-Regular.otf */; };
+		B32CF76F2CB910AE00A8FA0E /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B32CF7682CB910AE00A8FA0E /* Pretendard-SemiBold.otf */; };
+		B32CF7702CB910AE00A8FA0E /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B32CF7652CB910AE00A8FA0E /* Pretendard-Light.otf */; };
+		B32CF7712CB910AE00A8FA0E /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = B32CF7642CB910AE00A8FA0E /* Pretendard-ExtraLight.otf */; };
+		B32CF7732CB9127F00A8FA0E /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32CF7722CB9127A00A8FA0E /* UIFontExtension.swift */; };
 		B333F3AF2C4F497A00495539 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B333F3AE2C4F497A00495539 /* LoginModel.swift */; };
 		B333F3B32C4F4EFF00495539 /* DestinationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B333F3B22C4F4EFF00495539 /* DestinationModel.swift */; };
 		B333F3B52C4F4F0A00495539 /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B333F3B42C4F4F0A00495539 /* DestinationViewModel.swift */; };
@@ -24,6 +35,8 @@
 		B333F3BF2C4F75CA00495539 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B333F3BE2C4F75CA00495539 /* MyInfoView.swift */; };
 		B335746E2C608FB100CBDC72 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335746D2C608FB100CBDC72 /* NetworkManager.swift */; };
 		B33574702C6090A200CBDC72 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335746F2C6090A200CBDC72 /* JSONConverter.swift */; };
+		B34FB8742CBE2282000D8B7A /* PersonalLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */; };
+		B34FB8762CBE228F000D8B7A /* BusinessLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FB8752CBE228F000D8B7A /* BusinessLoginViewController.swift */; };
 		B35A9ED52C5782F10008F3FE /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A9ED42C5782F10008F3FE /* ImageCacheManager.swift */; };
 		B35A9ED72C57831D0008F3FE /* JupiterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A9ED62C57831D0008F3FE /* JupiterModel.swift */; };
 		B35A9ED92C5788A00008F3FE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A9ED82C5788A00008F3FE /* UIImageExtension.swift */; };
@@ -71,6 +84,17 @@
 		7E27E18182A39DDC6BE607C7 /* Pods-PhoenixSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoenixSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-PhoenixSDK_Example/Pods-PhoenixSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		971A46B6C9FA87F0846CB505 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A2BC5B63B905B9D468079CC0 /* Pods-PhoenixSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoenixSDK_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PhoenixSDK_Tests/Pods-PhoenixSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B32CF74A2CB90C7200A8FA0E /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		B32CF7602CB9109B00A8FA0E /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		B32CF7622CB910AE00A8FA0E /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		B32CF7632CB910AE00A8FA0E /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		B32CF7642CB910AE00A8FA0E /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		B32CF7652CB910AE00A8FA0E /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		B32CF7662CB910AE00A8FA0E /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		B32CF7672CB910AE00A8FA0E /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		B32CF7682CB910AE00A8FA0E /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		B32CF7692CB910AE00A8FA0E /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		B32CF7722CB9127A00A8FA0E /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		B333F3AE2C4F497A00495539 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		B333F3B22C4F4EFF00495539 /* DestinationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationModel.swift; sourceTree = "<group>"; };
 		B333F3B42C4F4F0A00495539 /* DestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewModel.swift; sourceTree = "<group>"; };
@@ -81,6 +105,8 @@
 		B333F3BE2C4F75CA00495539 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		B335746D2C608FB100CBDC72 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B335746F2C6090A200CBDC72 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
+		B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalLoginViewController.swift; sourceTree = "<group>"; };
+		B34FB8752CBE228F000D8B7A /* BusinessLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLoginViewController.swift; sourceTree = "<group>"; };
 		B35A9ED42C5782F10008F3FE /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		B35A9ED62C57831D0008F3FE /* JupiterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JupiterModel.swift; sourceTree = "<group>"; };
 		B35A9ED82C5788A00008F3FE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -172,6 +198,7 @@
 		607FACD21AFB9204008FA782 /* Example for PhoenixSDK */ = {
 			isa = PBXGroup;
 			children = (
+				B32CF74C2CB90CF000A8FA0E /* Resources */,
 				B35A9ED32C5782E60008F3FE /* Manager */,
 				B333F3AB2C4F479800495539 /* Model */,
 				B333F3AA2C4F479100495539 /* ViewModel */,
@@ -228,6 +255,30 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		B32CF74C2CB90CF000A8FA0E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B32CF74D2CB90CF900A8FA0E /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B32CF74D2CB90CF900A8FA0E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B32CF7602CB9109B00A8FA0E /* Pretendard-Black.otf */,
+				B32CF7622CB910AE00A8FA0E /* Pretendard-Bold.otf */,
+				B32CF7632CB910AE00A8FA0E /* Pretendard-ExtraBold.otf */,
+				B32CF7642CB910AE00A8FA0E /* Pretendard-ExtraLight.otf */,
+				B32CF7652CB910AE00A8FA0E /* Pretendard-Light.otf */,
+				B32CF7662CB910AE00A8FA0E /* Pretendard-Medium.otf */,
+				B32CF7672CB910AE00A8FA0E /* Pretendard-Regular.otf */,
+				B32CF7682CB910AE00A8FA0E /* Pretendard-SemiBold.otf */,
+				B32CF7692CB910AE00A8FA0E /* Pretendard-Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		B333F3A92C4F478C00495539 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +291,9 @@
 				B372244A2C520651008CAB2F /* PopUpViewController.swift */,
 				B37224582C539DC9008CAB2F /* JupiterServiceViewController.swift */,
 				B36AE8652CA55497005B21A2 /* AddNewSectorView.swift */,
+				B32CF74A2CB90C7200A8FA0E /* RootViewController.swift */,
+				B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */,
+				B34FB8752CBE228F000D8B7A /* BusinessLoginViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -277,6 +331,7 @@
 		B3A1E6EE2C2156DF008FA57A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B32CF7722CB9127A00A8FA0E /* UIFontExtension.swift */,
 				B3A1E6EF2C2156F3008FA57A /* UIViewExtension.swift */,
 				B37224442C5205ED008CAB2F /* UIColorExtension.swift */,
 				B37224462C5205FC008CAB2F /* UIControlExtension.swift */,
@@ -377,10 +432,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B32CF76A2CB910AE00A8FA0E /* Pretendard-Medium.otf in Resources */,
+				B32CF76B2CB910AE00A8FA0E /* Pretendard-Bold.otf in Resources */,
+				B32CF76C2CB910AE00A8FA0E /* Pretendard-Thin.otf in Resources */,
+				B32CF76D2CB910AE00A8FA0E /* Pretendard-ExtraBold.otf in Resources */,
+				B32CF76E2CB910AE00A8FA0E /* Pretendard-Regular.otf in Resources */,
+				B32CF76F2CB910AE00A8FA0E /* Pretendard-SemiBold.otf in Resources */,
+				B32CF7702CB910AE00A8FA0E /* Pretendard-Light.otf in Resources */,
+				B32CF7712CB910AE00A8FA0E /* Pretendard-ExtraLight.otf in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				B37224522C538E1B008CAB2F /* COEX_B0.csv in Resources */,
 				B37224552C539120008CAB2F /* progressingMovingImg.json in Resources */,
 				B37224512C538E1B008CAB2F /* S3_7F.csv in Resources */,
+				B32CF7612CB9109B00A8FA0E /* Pretendard-Black.otf in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				B37224572C539984008CAB2F /* progressingMovingImgBlue.json in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -495,11 +559,14 @@
 				B37224452C5205ED008CAB2F /* UIColorExtension.swift in Sources */,
 				B35A9ED92C5788A00008F3FE /* UIImageExtension.swift in Sources */,
 				607FACD81AFB9204008FA782 /* LoginViewController.swift in Sources */,
+				B32CF74B2CB90C7200A8FA0E /* RootViewController.swift in Sources */,
+				B34FB8762CBE228F000D8B7A /* BusinessLoginViewController.swift in Sources */,
 				B335746E2C608FB100CBDC72 /* NetworkManager.swift in Sources */,
 				B333F3B52C4F4F0A00495539 /* DestinationViewModel.swift in Sources */,
 				B37224492C52061C008CAB2F /* UIViewControllerExtension.swift in Sources */,
 				B37224472C5205FC008CAB2F /* UIControlExtension.swift in Sources */,
 				B333F3BB2C4F6BED00495539 /* VGSModel.swift in Sources */,
+				B32CF7732CB9127F00A8FA0E /* UIFontExtension.swift in Sources */,
 				B333F3BD2C4F737B00495539 /* DestinationDataCell.swift in Sources */,
 				B35A9ED72C57831D0008F3FE /* JupiterModel.swift in Sources */,
 				B333F3BF2C4F75CA00495539 /* MyInfoView.swift in Sources */,
@@ -509,6 +576,7 @@
 				B372244B2C520651008CAB2F /* PopUpViewController.swift in Sources */,
 				B333F3B92C4F4F4100495539 /* DestinationViewController.swift in Sources */,
 				B333F3B32C4F4EFF00495539 /* DestinationModel.swift in Sources */,
+				B34FB8742CBE2282000D8B7A /* PersonalLoginViewController.swift in Sources */,
 				B3A1E6F02C2156F3008FA57A /* UIViewExtension.swift in Sources */,
 				B333F3B72C4F4F1400495539 /* DestinationView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
@@ -683,7 +751,7 @@
 				INFOPLIST_FILE = PhoenixSDK/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = VGS;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -716,7 +784,7 @@
 				INFOPLIST_FILE = PhoenixSDK/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = VGS;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

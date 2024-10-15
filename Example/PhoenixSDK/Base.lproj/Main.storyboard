@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EIH-fo-BTK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EIH-fo-BTK">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -208,6 +207,175 @@
             </objects>
             <point key="canvasLocation" x="-178.6046511627907" y="-161.58798283261802"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="uGP-Wn-NLI">
+            <objects>
+                <viewController restorationIdentifier="RootViewController" storyboardIdentifier="RootViewController" id="RI2-fN-kio" customClass="RootViewController" customModule="PhoenixSDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J2X-Wu-GSl"/>
+                        <viewControllerLayoutGuide type="bottom" id="CSa-te-rDw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tHq-cf-7oP">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VEHICLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksW-DC-rvc">
+                                <rect key="frame" x="40" y="109.00000000000001" width="350" height="46.666666666666671"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GUIDANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hL7-jm-PPU">
+                                <rect key="frame" x="40" y="160.66666666666666" width="350" height="46.666666666666657"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SERVICE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZV-41-Wec">
+                                <rect key="frame" x="40" y="212.33333333333334" width="350" height="46.666666666666657"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMn-mw-BHg" customClass="UIButton">
+                                <rect key="frame" x="25" y="818" width="380" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="businessLogin" translatesAutoresizingMaskIntoConstraints="NO" id="He8-6j-WJf">
+                                        <rect key="frame" x="20" y="10" width="60" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="DTk-7t-INl"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="산업회원 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDg-QB-qWM">
+                                        <rect key="frame" x="126.66666666666666" y="18.333333333333371" width="126.66666666666666" height="23.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="He8-6j-WJf" secondAttribute="bottom" constant="10" id="QSx-dA-suR"/>
+                                    <constraint firstItem="He8-6j-WJf" firstAttribute="leading" secondItem="bMn-mw-BHg" secondAttribute="leading" constant="20" id="Tdy-pc-YNm"/>
+                                    <constraint firstAttribute="height" constant="60" id="WBq-x3-uMY"/>
+                                    <constraint firstItem="He8-6j-WJf" firstAttribute="top" secondItem="bMn-mw-BHg" secondAttribute="top" constant="10" id="WFt-LF-aT7"/>
+                                    <constraint firstItem="QDg-QB-qWM" firstAttribute="centerX" secondItem="bMn-mw-BHg" secondAttribute="centerX" id="e0d-R6-d5B"/>
+                                    <constraint firstItem="QDg-QB-qWM" firstAttribute="centerY" secondItem="bMn-mw-BHg" secondAttribute="centerY" id="eeA-wM-dFk"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="tapBusinessLogin:" destination="RI2-fN-kio" eventType="touchUpInside" id="wRf-vz-e8u"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBB-6N-kZA" customClass="UIButton">
+                                <rect key="frame" x="25" y="738" width="380" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personalLogin" translatesAutoresizingMaskIntoConstraints="NO" id="KJ6-oh-UMr">
+                                        <rect key="frame" x="20" y="10" width="60" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="LZQ-4Q-AhB"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인회원 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="274-J6-8ND">
+                                        <rect key="frame" x="126.66666666666666" y="18.333333333333371" width="126.66666666666666" height="23.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="KJ6-oh-UMr" secondAttribute="bottom" constant="5" id="0mH-c7-t89"/>
+                                    <constraint firstItem="KJ6-oh-UMr" firstAttribute="leading" secondItem="ZBB-6N-kZA" secondAttribute="leading" constant="20" id="Csl-ab-4jN"/>
+                                    <constraint firstItem="274-J6-8ND" firstAttribute="centerX" secondItem="ZBB-6N-kZA" secondAttribute="centerX" id="YQU-8R-L9c"/>
+                                    <constraint firstItem="274-J6-8ND" firstAttribute="centerY" secondItem="ZBB-6N-kZA" secondAttribute="centerY" id="aUn-lw-avf"/>
+                                    <constraint firstItem="KJ6-oh-UMr" firstAttribute="top" secondItem="ZBB-6N-kZA" secondAttribute="top" constant="10" id="dae-dQ-ZBU"/>
+                                    <constraint firstAttribute="height" constant="60" id="dk2-H7-7kg"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="tapPersonalLogin:" destination="RI2-fN-kio" eventType="touchUpInside" id="Qu4-qa-gCd"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZBB-6N-kZA" firstAttribute="leading" secondItem="bMn-mw-BHg" secondAttribute="leading" id="5lV-tO-hDI"/>
+                            <constraint firstItem="CSa-te-rDw" firstAttribute="top" secondItem="bMn-mw-BHg" secondAttribute="bottom" constant="20" id="9Wv-Oc-yL6"/>
+                            <constraint firstItem="hL7-jm-PPU" firstAttribute="top" secondItem="ksW-DC-rvc" secondAttribute="bottom" constant="5" id="I2V-t9-q0p"/>
+                            <constraint firstItem="ZBB-6N-kZA" firstAttribute="centerX" secondItem="tHq-cf-7oP" secondAttribute="centerX" id="Nsa-Kc-Iek"/>
+                            <constraint firstItem="ksW-DC-rvc" firstAttribute="leading" secondItem="tHq-cf-7oP" secondAttribute="leadingMargin" constant="20" id="PET-4O-nSL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eZV-41-Wec" secondAttribute="trailing" constant="20" id="Qnv-9P-m0s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ksW-DC-rvc" secondAttribute="trailing" constant="20" id="VaR-AI-blG"/>
+                            <constraint firstItem="bMn-mw-BHg" firstAttribute="top" secondItem="ZBB-6N-kZA" secondAttribute="bottom" constant="20" id="YI7-tk-ain"/>
+                            <constraint firstItem="bMn-mw-BHg" firstAttribute="leading" secondItem="tHq-cf-7oP" secondAttribute="leadingMargin" constant="5" id="bgq-Qo-1YG"/>
+                            <constraint firstItem="eZV-41-Wec" firstAttribute="top" secondItem="hL7-jm-PPU" secondAttribute="bottom" constant="5" id="c6Z-Ze-8Se"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hL7-jm-PPU" secondAttribute="trailing" constant="20" id="d3E-Fo-28f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bMn-mw-BHg" secondAttribute="trailing" constant="5" id="epb-1T-Aho"/>
+                            <constraint firstItem="hL7-jm-PPU" firstAttribute="leading" secondItem="ksW-DC-rvc" secondAttribute="leading" id="giU-o5-D57"/>
+                            <constraint firstItem="eZV-41-Wec" firstAttribute="leading" secondItem="hL7-jm-PPU" secondAttribute="leading" id="ogY-AO-5aI"/>
+                            <constraint firstItem="ksW-DC-rvc" firstAttribute="top" secondItem="J2X-Wu-GSl" secondAttribute="bottom" constant="50" id="reM-UI-zgx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RgH-X9-gF3"/>
+                    <connections>
+                        <outlet property="businessLoginButton" destination="bMn-mw-BHg" id="uMz-rf-WGv"/>
+                        <outlet property="businessLoginImage" destination="He8-6j-WJf" id="jrd-wu-FWV"/>
+                        <outlet property="businessLoginLabel" destination="QDg-QB-qWM" id="Sgk-hJ-O5q"/>
+                        <outlet property="personalLoginButton" destination="ZBB-6N-kZA" id="wKV-Zq-Va4"/>
+                        <outlet property="personalLoginImage" destination="KJ6-oh-UMr" id="8WQ-h1-7Ci"/>
+                        <outlet property="personalLoginLabel" destination="274-J6-8ND" id="mPj-rh-ev2"/>
+                        <outlet property="titleGuidanceLabel" destination="hL7-jm-PPU" id="yuw-3o-HLq"/>
+                        <outlet property="titleServiceLabel" destination="eZV-41-Wec" id="qnW-Po-0K4"/>
+                        <outlet property="titleVehicleLabel" destination="ksW-DC-rvc" id="0jp-Ws-E9s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rsQ-x4-Fym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-179" y="602"/>
+        </scene>
+        <!--Personal Login View Controller-->
+        <scene sceneID="vXi-qN-Uod">
+            <objects>
+                <viewController storyboardIdentifier="PersonalLoginViewController" id="ybs-Hy-6bO" customClass="PersonalLoginViewController" customModule="PhoenixSDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nMs-4y-IMZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="HST-P8-zDM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cjf-RV-RGy">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WHq-bu-EK5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="657" y="606"/>
+        </scene>
+        <!--Business Login View Controller-->
+        <scene sceneID="0Sd-mo-piq">
+            <objects>
+                <viewController storyboardIdentifier="BusinessLoginViewController" id="vjd-f8-UiS" customClass="BusinessLoginViewController" customModule="PhoenixSDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gx1-63-SjZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gud-xz-iDU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8en-dg-QWy">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jns-Kc-myq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1434" y="602"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="BXD-eP-pzI">
             <objects>
@@ -386,7 +554,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="tpb-J4-y3d"/>
+                        <segue destination="RI2-fN-kio" kind="relationship" relationship="rootViewController" id="qVK-cs-lNR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpR-V6-Tn9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -413,8 +581,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="businessLogin" width="57.333332061767578" height="34.666667938232422"/>
         <image name="buttonLogin" width="349.33334350585938" height="58.333332061767578"/>
         <image name="checkedBox" width="24.666666030883789" height="25.333333969116211"/>
+        <image name="personalLogin" width="57.333332061767578" height="57.333332061767578"/>
         <image name="uncheckedBox" width="24.666666030883789" height="25.333333969116211"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -422,11 +592,17 @@
         <systemColor name="systemCyanColor">
             <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

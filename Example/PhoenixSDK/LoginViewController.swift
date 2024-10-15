@@ -36,6 +36,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         nameTextField.delegate = self
         companyTextField.delegate = self
         carNumberTextField.delegate = self
+        
+//        for family in UIFont.familyNames.sorted() {
+//            let names = UIFont.fontNames(forFamilyName: family)
+//            print("Family: \(family) Font names: \(names)")
+//        }
     }
 
     override func didReceiveMemoryWarning() {
