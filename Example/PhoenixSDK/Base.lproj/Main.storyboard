@@ -226,13 +226,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GUIDANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hL7-jm-PPU">
-                                <rect key="frame" x="40" y="160.66666666666666" width="350" height="46.666666666666657"/>
+                                <rect key="frame" x="40" y="157.66666666666666" width="350" height="46.666666666666657"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SERVICE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZV-41-Wec">
-                                <rect key="frame" x="40" y="212.33333333333334" width="350" height="46.666666666666657"/>
+                                <rect key="frame" x="40" y="206.33333333333334" width="350" height="46.666666666666657"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -308,14 +308,14 @@
                         <constraints>
                             <constraint firstItem="ZBB-6N-kZA" firstAttribute="leading" secondItem="bMn-mw-BHg" secondAttribute="leading" id="5lV-tO-hDI"/>
                             <constraint firstItem="CSa-te-rDw" firstAttribute="top" secondItem="bMn-mw-BHg" secondAttribute="bottom" constant="20" id="9Wv-Oc-yL6"/>
-                            <constraint firstItem="hL7-jm-PPU" firstAttribute="top" secondItem="ksW-DC-rvc" secondAttribute="bottom" constant="5" id="I2V-t9-q0p"/>
+                            <constraint firstItem="hL7-jm-PPU" firstAttribute="top" secondItem="ksW-DC-rvc" secondAttribute="bottom" constant="2" id="I2V-t9-q0p"/>
                             <constraint firstItem="ZBB-6N-kZA" firstAttribute="centerX" secondItem="tHq-cf-7oP" secondAttribute="centerX" id="Nsa-Kc-Iek"/>
                             <constraint firstItem="ksW-DC-rvc" firstAttribute="leading" secondItem="tHq-cf-7oP" secondAttribute="leadingMargin" constant="20" id="PET-4O-nSL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eZV-41-Wec" secondAttribute="trailing" constant="20" id="Qnv-9P-m0s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ksW-DC-rvc" secondAttribute="trailing" constant="20" id="VaR-AI-blG"/>
                             <constraint firstItem="bMn-mw-BHg" firstAttribute="top" secondItem="ZBB-6N-kZA" secondAttribute="bottom" constant="20" id="YI7-tk-ain"/>
                             <constraint firstItem="bMn-mw-BHg" firstAttribute="leading" secondItem="tHq-cf-7oP" secondAttribute="leadingMargin" constant="5" id="bgq-Qo-1YG"/>
-                            <constraint firstItem="eZV-41-Wec" firstAttribute="top" secondItem="hL7-jm-PPU" secondAttribute="bottom" constant="5" id="c6Z-Ze-8Se"/>
+                            <constraint firstItem="eZV-41-Wec" firstAttribute="top" secondItem="hL7-jm-PPU" secondAttribute="bottom" constant="2" id="c6Z-Ze-8Se"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hL7-jm-PPU" secondAttribute="trailing" constant="20" id="d3E-Fo-28f"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bMn-mw-BHg" secondAttribute="trailing" constant="5" id="epb-1T-Aho"/>
                             <constraint firstItem="hL7-jm-PPU" firstAttribute="leading" secondItem="ksW-DC-rvc" secondAttribute="leading" id="giU-o5-D57"/>
@@ -581,7 +581,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="businessLogin" width="57.333332061767578" height="34.666667938232422"/>
+        <image name="businessLogin" width="61.666667938232422" height="56"/>
         <image name="buttonLogin" width="349.33334350585938" height="58.333332061767578"/>
         <image name="checkedBox" width="24.666666030883789" height="25.333333969116211"/>
         <image name="personalLogin" width="57.333332061767578" height="57.333332061767578"/>

@@ -7,7 +7,6 @@ class RootViewController: UIViewController {
     @IBOutlet weak var titleGuidanceLabel: UILabel!
     @IBOutlet weak var titleServiceLabel: UILabel!
     
-
     @IBOutlet weak var businessLoginButton: UIButton!
     @IBOutlet weak var businessLoginImage: UIImageView!
     @IBOutlet weak var businessLoginLabel: UILabel!
@@ -19,30 +18,42 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTitleLabels()
+        self.setupLoginImages()
         self.setupLoginButtons()
         self.setupButtonTouchEffects()
     }
     
     private func setupTitleLabels() {
-        self.titleVehicleLabel.font = UIFont.pretendardExtraBold(size: 50)
-        self.titleGuidanceLabel.font = UIFont.pretendardExtraBold(size: 50)
-        self.titleServiceLabel.font = UIFont.pretendardExtraBold(size: 50)
+        self.titleVehicleLabel.font = UIFont.pretendardExtraBold(size: 55)
+        self.titleGuidanceLabel.font = UIFont.pretendardExtraBold(size: 55)
+        self.titleServiceLabel.font = UIFont.pretendardExtraBold(size: 55)
     }
     
     private func setupLoginButtons() {
         // Business
-        self.businessLoginButton.backgroundColor = UIColor(hexCode: "F9E64D")
+//        self.businessLoginButton.backgroundColor = UIColor(hexCode: "F9E64D")
+        self.businessLoginButton.backgroundColor = UIColor.black
         self.businessLoginButton.borderColor = .clear
         self.businessLoginButton.cornerRadius = 20
         self.businessLoginButton.borderWidth = 1
+        self.businessLoginButton.isUserInteractionEnabled = true
         self.businessLoginLabel.font = UIFont.pretendardBold(size: 20)
+        self.businessLoginLabel.textColor = .white
         
         // Personal
         self.personalLoginButton.backgroundColor = UIColor(hexCode: "E8E8E8")
         self.personalLoginButton.borderColor = .clear
         self.personalLoginButton.cornerRadius = 20
         self.personalLoginButton.borderWidth = 1
+        self.personalLoginButton.isUserInteractionEnabled = true
         self.personalLoginLabel.font = UIFont.pretendardBold(size: 20)
+    }
+    
+    private func setupLoginImages() {
+        if let businessLoginImage = UIImage(named: "businessLogin") {
+            let invertedImage = businessLoginImage.invertColors()
+            self.businessLoginImage.image = invertedImage
+        }
     }
     
     private func setupButtonTouchEffects() {
@@ -54,14 +65,15 @@ class RootViewController: UIViewController {
     
     @objc private func businessButtonTouchDown() {
         UIView.animate(withDuration: 0.1) {
-            self.businessLoginButton.backgroundColor = UIColor(hexCode: "E5D33C") // Darken on press
+//            self.businessLoginButton.backgroundColor = UIColor(hexCode: "E5D33C") // Darken on press
+            self.businessLoginButton.backgroundColor = UIColor.darkGray
             self.businessLoginButton.transform = CGAffineTransform(scaleX: 0.96, y: 0.96) // Slightly scale down
         }
     }
 
     @objc private func businessButtonTouchUp() {
         UIView.animate(withDuration: 0.1) {
-            self.businessLoginButton.backgroundColor = UIColor(hexCode: "F9E64D") // Original color
+            self.businessLoginButton.backgroundColor = UIColor.black // Original color
             self.businessLoginButton.transform = CGAffineTransform.identity // Reset scale
         }
     }
@@ -80,11 +92,37 @@ class RootViewController: UIViewController {
         }
     }
     
+    func goToBusinessLoginVC() {
+        guard let businessLoginVC = self.storyboard?.instantiateViewController(withIdentifier: BusinessLoginViewController.identifier) as? BusinessLoginViewController else { return }
+        self.navigationController?.pushViewController(businessLoginVC, animated: true)
+    }
+    
+    func goToPersonalLoginVC() {
+        guard let personalLoginVC = self.storyboard?.instantiateViewController(withIdentifier: PersonalLoginViewController.identifier) as? PersonalLoginViewController else { return }
+        self.navigationController?.pushViewController(personalLoginVC, animated: true)
+    }
+    
+    private func toggleBusinessLoginButton() {
+        if self.businessLoginButton.isUserInteractionEnabled {
+            self.businessLoginButton.isUserInteractionEnabled = false
+        } else {
+            self.businessLoginButton.isUserInteractionEnabled = true
+        }
+    }
+    
+    private func togglePersonalLoginButton() {
+        if self.personalLoginButton.isUserInteractionEnabled {
+            self.personalLoginButton.isUserInteractionEnabled = false
+        } else {
+            self.personalLoginButton.isUserInteractionEnabled = true
+        }
+    }
+    
     @IBAction func tapBusinessLogin(_ sender: UIButton) {
-        print("Business Login Tapped")
+        goToBusinessLoginVC()
     }
     
     @IBAction func tapPersonalLogin(_ sender: UIButton) {
-        print("Personal Login Tapped")
+        goToPersonalLoginVC()
     }
 }

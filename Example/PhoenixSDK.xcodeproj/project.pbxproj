@@ -37,6 +37,8 @@
 		B33574702C6090A200CBDC72 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335746F2C6090A200CBDC72 /* JSONConverter.swift */; };
 		B34FB8742CBE2282000D8B7A /* PersonalLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */; };
 		B34FB8762CBE228F000D8B7A /* BusinessLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FB8752CBE228F000D8B7A /* BusinessLoginViewController.swift */; };
+		B34FB8782CBE2A4C000D8B7A /* LoginTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FB8772CBE2A4C000D8B7A /* LoginTopView.swift */; };
+		B34FB87A2CBE4F45000D8B7A /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FB8792CBE4F45000D8B7A /* UserInfoManager.swift */; };
 		B35A9ED52C5782F10008F3FE /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A9ED42C5782F10008F3FE /* ImageCacheManager.swift */; };
 		B35A9ED72C57831D0008F3FE /* JupiterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A9ED62C57831D0008F3FE /* JupiterModel.swift */; };
 		B35A9ED92C5788A00008F3FE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A9ED82C5788A00008F3FE /* UIImageExtension.swift */; };
@@ -107,6 +109,8 @@
 		B335746F2C6090A200CBDC72 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalLoginViewController.swift; sourceTree = "<group>"; };
 		B34FB8752CBE228F000D8B7A /* BusinessLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLoginViewController.swift; sourceTree = "<group>"; };
+		B34FB8772CBE2A4C000D8B7A /* LoginTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTopView.swift; sourceTree = "<group>"; };
+		B34FB8792CBE4F45000D8B7A /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		B35A9ED42C5782F10008F3FE /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		B35A9ED62C57831D0008F3FE /* JupiterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JupiterModel.swift; sourceTree = "<group>"; };
 		B35A9ED82C5788A00008F3FE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 				B32CF74A2CB90C7200A8FA0E /* RootViewController.swift */,
 				B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */,
 				B34FB8752CBE228F000D8B7A /* BusinessLoginViewController.swift */,
+				B34FB8772CBE2A4C000D8B7A /* LoginTopView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 			children = (
 				B35A9ED42C5782F10008F3FE /* ImageCacheManager.swift */,
 				B335746D2C608FB100CBDC72 /* NetworkManager.swift */,
+				B34FB8792CBE4F45000D8B7A /* UserInfoManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -559,6 +565,7 @@
 				B37224452C5205ED008CAB2F /* UIColorExtension.swift in Sources */,
 				B35A9ED92C5788A00008F3FE /* UIImageExtension.swift in Sources */,
 				607FACD81AFB9204008FA782 /* LoginViewController.swift in Sources */,
+				B34FB8782CBE2A4C000D8B7A /* LoginTopView.swift in Sources */,
 				B32CF74B2CB90C7200A8FA0E /* RootViewController.swift in Sources */,
 				B34FB8762CBE228F000D8B7A /* BusinessLoginViewController.swift in Sources */,
 				B335746E2C608FB100CBDC72 /* NetworkManager.swift in Sources */,
@@ -572,6 +579,7 @@
 				B333F3BF2C4F75CA00495539 /* MyInfoView.swift in Sources */,
 				B333F3AF2C4F497A00495539 /* LoginModel.swift in Sources */,
 				B33574702C6090A200CBDC72 /* JSONConverter.swift in Sources */,
+				B34FB87A2CBE4F45000D8B7A /* UserInfoManager.swift in Sources */,
 				B37224592C539DC9008CAB2F /* JupiterServiceViewController.swift in Sources */,
 				B372244B2C520651008CAB2F /* PopUpViewController.swift in Sources */,
 				B333F3B92C4F4F4100495539 /* DestinationViewController.swift in Sources */,

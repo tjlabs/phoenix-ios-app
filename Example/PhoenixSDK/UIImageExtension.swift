@@ -61,4 +61,29 @@ extension UIImage {
 
         return newImage
     }
+    
+    func invertColors() -> UIImage? {
+        // Get the Core Image version of the UIImage
+        guard let coreImage = CIImage(image: self) else {
+            return nil
+        }
+            
+        // Apply an inverted color filter
+        let filter = CIFilter(name: "CIColorInvert")
+        filter?.setValue(coreImage, forKey: kCIInputImageKey)
+            
+        // Get the filtered output image
+        guard let outputImage = filter?.outputImage else {
+            return nil
+        }
+            
+        // Create a CIContext and convert the output CIImage to CGImage
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else {
+            return nil
+        }
+            
+        // Return a new UIImage from the CGImage
+        return UIImage(cgImage: cgImage)
+    }
 }
