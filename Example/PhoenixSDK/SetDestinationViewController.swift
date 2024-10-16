@@ -5,8 +5,12 @@ import RxCocoa
 
 class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     static let identifier = "SetDestinationViewController"
+    let USER_TYPE = UserInfoManager.shared.userType
     
     private lazy var topView = TopView(title: "목적지 설정")
+    private lazy var myDestinationView = MyDestinationView()
+    private lazy var searchedDestinationView = SearchedDestinationView()
+    private lazy var dialogView = DialogView()
     private let addDestinationButton = UIButton().then {
         $0.setImage(UIImage(named: "plus_button"), for: .normal)
     }
@@ -45,6 +49,7 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
         $0.textColor = .black
     }
     
+    
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -70,7 +75,7 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
         addDestinationButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.goToAddDestinationVC()
+                self.tapAddDestinationButton()
             })
             .disposed(by: disposeBag)
 
@@ -86,7 +91,16 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func goToAddDestinationVC() {
-        print("Go To addDestionationVC")
+        guard let addDestinationVC = self.storyboard?.instantiateViewController(withIdentifier: AddDestinationViewController.identifier) as? AddDestinationViewController else { return }
+        self.navigationController?.pushViewController(addDestinationVC, animated: true)
+    }
+    
+    private func tapAddDestinationButton() {
+        if USER_TYPE == .BUSINESS {
+            self.goToAddDestinationVC()
+        } else {
+            dialogView.toggleDialogViewHidden()
+        }
     }
 }
 
@@ -100,6 +114,11 @@ private extension SetDestinationViewController {
         view.addSubview(searchGuideLabel)
         view.addSubview(searchTextField)
         
+        view.addSubview(myDestinationView)
+        view.addSubview(searchedDestinationView)
+        
+        view.addSubview(dialogView)
+        
         topStackView.snp.makeConstraints { make in
             make.height.equalTo(60)
             make.leading.trailing.equalToSuperview().inset(10)
@@ -110,6 +129,7 @@ private extension SetDestinationViewController {
             make.height.width.equalTo(60)
         }
         
+        // 검색
         searchDestinationView.snp.makeConstraints { make in
             make.height.width.equalTo(60)
             make.leading.trailing.equalToSuperview().inset(10)
@@ -135,6 +155,24 @@ private extension SetDestinationViewController {
             make.trailing.equalToSuperview().inset(15)
             make.top.equalTo(searchDestinationView.snp.top).inset(10)
             make.bottom.equalTo(searchDestinationView.snp.bottom).inset(10)
+        }
+        
+        // 내 장소
+        myDestinationView.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(searchDestinationView.snp.bottom).offset(10)
+        }
+        
+        // 장소
+        searchedDestinationView.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(myDestinationView.snp.bottom)
+        }
+        
+        dialogView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
         }
     }
 }

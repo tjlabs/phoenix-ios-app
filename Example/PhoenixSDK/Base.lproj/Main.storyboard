@@ -394,6 +394,24 @@
             </objects>
             <point key="canvasLocation" x="656" y="1353"/>
         </scene>
+        <!--Add Destination View Controller-->
+        <scene sceneID="MEP-t7-xSl">
+            <objects>
+                <viewController storyboardIdentifier="AddDestinationViewController" id="UgG-7f-9eE" customClass="AddDestinationViewController" customModule="PhoenixSDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7JO-vR-ptU"/>
+                        <viewControllerLayoutGuide type="bottom" id="282-f0-UfW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1p1-fG-DV9">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Inv-mB-Q1L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1433" y="1353"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="BXD-eP-pzI">
             <objects>
