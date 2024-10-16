@@ -6,7 +6,7 @@ import RxCocoa
 class PersonalLoginViewController: UIViewController, UITextFieldDelegate {
     static let identifier = "PersonalLoginViewController"
     
-    private lazy var loginTopView = LoginTopView(title: "개인회원 로그인")
+    private lazy var topView = TopView(title: "개인회원 로그인")
     private let disposeBag = DisposeBag()
     
     private let emailTextField = UITextField().then {
@@ -43,8 +43,8 @@ class PersonalLoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     private let saveUserInfoButton = UIButton().then {
-        $0.setImage(UIImage(named: "uncheckedBox"), for: .normal)
-        $0.setImage(UIImage(named: "checkedBox"), for: .selected)
+        $0.setImage(UIImage(named: "uncheckedBox_icon"), for: .normal)
+        $0.setImage(UIImage(named: "checkedBox_icon"), for: .selected)
     }
     
     private let loginButton = UIButton().then {
@@ -110,7 +110,7 @@ class PersonalLoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func bindActions() {
-        loginTopView.backButtonTapped
+        topView.backButtonTapped
             .subscribe(onNext: { [weak self] in
                 self?.tapBackButton()
             }).disposed(by: disposeBag)
@@ -156,6 +156,8 @@ class PersonalLoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 UserInfoManager.shared.savePersonalUserInfo(userInfo: personalUserInfo, initialize: true)
             }
+            self.loginButtonTouchUp()
+            self.goToSetDestinationVC()
         } else {
             // Valid Input
         }
@@ -179,11 +181,16 @@ class PersonalLoginViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    func goToSetDestinationVC() {
+        guard let setDestinationVC = self.storyboard?.instantiateViewController(withIdentifier: SetDestinationViewController.identifier) as? SetDestinationViewController else { return }
+        self.navigationController?.pushViewController(setDestinationVC, animated: true)
+    }
 }
 
 private extension PersonalLoginViewController {
     func setupLayout() {
-        view.addSubview(loginTopView)
+        view.addSubview(topView)
         view.addSubview(emailTextField)
         view.addSubview(separatorViewForEmail)
         view.addSubview(passwordTextField)
@@ -197,7 +204,7 @@ private extension PersonalLoginViewController {
         findUserInfoStackView.addArrangedSubview(findUserInfoSeperator)
         findUserInfoStackView.addArrangedSubview(findPasswordLabel)
         
-        loginTopView.snp.makeConstraints { make in
+        topView.snp.makeConstraints { make in
             make.height.equalTo(60)
             make.leading.trailing.equalToSuperview().inset(10)
             make.top.equalToSuperview().inset(50)
@@ -205,7 +212,7 @@ private extension PersonalLoginViewController {
         
         emailTextField.snp.makeConstraints { make in
             make.height.equalTo(60)
-            make.top.equalTo(loginTopView.snp.bottom).offset(20)
+            make.top.equalTo(topView.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(40)
         }
         

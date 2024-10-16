@@ -7,7 +7,7 @@ import RxCocoa
 import SnapKit
 import Then
 
-class LoginTopView: UIView {
+class TopView: UIView {
     
     private var title: String?
     
@@ -16,7 +16,7 @@ class LoginTopView: UIView {
     }
     
     private let backButton = UIButton().then {
-        $0.setImage(UIImage(named: "backButton"), for: .normal)
+        $0.setImage(UIImage(named: "back_button"), for: .normal)
     }
     
     private let titleLabel = UILabel().then {

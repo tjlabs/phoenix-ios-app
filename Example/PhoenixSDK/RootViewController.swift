@@ -119,10 +119,12 @@ class RootViewController: UIViewController {
     }
     
     @IBAction func tapBusinessLogin(_ sender: UIButton) {
+        self.businessButtonTouchUp()
         goToBusinessLoginVC()
     }
     
     @IBAction func tapPersonalLogin(_ sender: UIButton) {
+        self.personalButtonTouchUp()
         goToPersonalLoginVC()
     }
 }

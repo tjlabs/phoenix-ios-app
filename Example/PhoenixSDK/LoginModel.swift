@@ -6,6 +6,12 @@ struct UserInfo {
     var carNumber: String
 }
 
+public enum UserType: String {
+    case NONE
+    case PERSONAL
+    case BUSINESS
+}
+
 public struct PersonalUserInfo {
     var email: String
     var password: String
@@ -17,3 +23,5 @@ public struct BusinessUserInfo {
     var company: String
     var phone_number: String
 }
+
+
