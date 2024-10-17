@@ -104,6 +104,11 @@ class DialogView: UIView {
         blackView.addGestureRecognizer(blackViewTapGesture)
     }
     
+    public func changeDialogInformation(message: String, buttonColor: UIColor) {
+        self.messageLabel.text = message
+        self.confirmButton.backgroundColor = buttonColor
+    }
+    
     @objc private func confirmButtonTouchDown() {
         UIView.animate(withDuration: 0.1) {
             self.confirmButton.backgroundColor = UIColor.darkGray

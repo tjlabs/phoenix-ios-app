@@ -8,6 +8,7 @@ class AddDestinationViewController: UIViewController, UITextFieldDelegate {
     let USER_TYPE = UserInfoManager.shared.userType
     
     private lazy var topView = TopView(title: "")
+    private lazy var dialogView = DialogView()
     
     private let explainLabelLine1 = UILabel().then {
         $0.font = UIFont.pretendardSemiBold(size: 25)
@@ -81,6 +82,7 @@ class AddDestinationViewController: UIViewController, UITextFieldDelegate {
         addButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
+                self.addMyDestination()
             })
             .disposed(by: disposeBag)
         
@@ -90,6 +92,40 @@ class AddDestinationViewController: UIViewController, UITextFieldDelegate {
         
     private func tapBackButton() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func addMyDestination() {
+        let code = self.codeTextField.text ?? ""
+        if code.isEmpty {
+            // 코드 입력
+            dialogView.changeDialogInformation(message: "유효한 코드를 입력해주세요", buttonColor: .systemRed)
+            dialogView.toggleDialogViewHidden()
+        } else {
+            let input = InputSectors(user_group_code: code)
+            NetworkManager.shared.postUserSectors(url: SECTORS_URL, input: input, completion: { [self] statusCode, returnedString in
+                if statusCode == 200 {
+                    let decodedResult = jsonToOutputSectors(jsonString: returnedString)
+                    if decodedResult.0 {
+                        let outputSectors: OutputSectors = decodedResult.1
+                        if outputSectors.sectors.isEmpty {
+                            // 실패
+                            dialogView.changeDialogInformation(message: "목적지 등록 실패", buttonColor: .systemRed)
+                            dialogView.toggleDialogViewHidden()
+                        } else {
+                            
+                        }
+                    } else {
+                        // 실패
+                        dialogView.changeDialogInformation(message: "목적지 등록 실패", buttonColor: .systemRed)
+                        dialogView.toggleDialogViewHidden()
+                    }
+                } else {
+                    // 실패
+                    dialogView.changeDialogInformation(message: "목적지 등록 실패(\(statusCode))", buttonColor: .systemRed)
+                    dialogView.toggleDialogViewHidden()
+                }
+            })
+        }
     }
     
     @objc private func addButtonTouchDown() {
@@ -117,6 +153,8 @@ private extension AddDestinationViewController {
         view.addSubview(codeTextField)
         view.addSubview(separatorView)
         view.addSubview(addButton)
+        
+        view.addSubview(dialogView)
         
         topView.snp.makeConstraints { make in
             make.height.equalTo(60)
@@ -160,6 +198,10 @@ private extension AddDestinationViewController {
             make.height.equalTo(60)
             make.top.equalTo(separatorView.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        dialogView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
         }
     }
 }
