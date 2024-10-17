@@ -1,11 +1,21 @@
 
 import Foundation
+import RxSwift
 
 public class DestinationManager {
     static let shared = DestinationManager()
     let userDefaults = UserDefaults.standard
     
-    public var destinationInfoList = [DestinationInformation]()
+    private let destinationInfoListSubject = BehaviorSubject<[DestinationInformation]>(value: [])
+    var destinationInfoListObservable: Observable<[DestinationInformation]> {
+            return destinationInfoListSubject.asObservable()
+        }
+    
+    public var destinationInfoList = [DestinationInformation]() {
+            didSet {
+                destinationInfoListSubject.onNext(destinationInfoList)
+            }
+        }
     
     public func getDestinationInfoList() -> [DestinationInformation] {
         return self.destinationInfoList
@@ -37,7 +47,7 @@ public class DestinationManager {
 
         self.destinationInfoList += newItemList
         print("(Phoenix) Destination List : \(self.destinationInfoList)")
-//        self.saveDestinationInformationList()
+        self.saveDestinationInformationList()
     }
     
     public func saveDestinationInformationList() {

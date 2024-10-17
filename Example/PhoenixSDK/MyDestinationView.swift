@@ -8,7 +8,6 @@ import SnapKit
 import Then
 
 class MyDestinationView: UIView {
-    
     private let titleLabel = UILabel().then {
         $0.font = UIFont.pretendardSemiBold(size: 17)
         $0.text = "내 장소"
@@ -16,15 +15,17 @@ class MyDestinationView: UIView {
         $0.textColor = .darkGray
     }
     
-    let toggleImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
-        $0.image = UIImage(named: "arrowDown_icon")
+    private let showMyDestinationButton = UIButton().then {
+        $0.setImage(UIImage(named: "arrowDown_icon"), for: .normal)
+        $0.setImage(UIImage(named: "arrowUp_icon"), for: .selected)
     }
     
+    private let disposeBag = DisposeBag()
     init() {
         super.init(frame: .zero)
         self.backgroundColor = .systemGray6
         setupLayout()
+        bindActions()
     }
     
     required init?(coder: NSCoder) {
@@ -32,10 +33,10 @@ class MyDestinationView: UIView {
     }
     
     private func setupLayout() {
-        addSubview(toggleImageView)
+        addSubview(showMyDestinationButton)
         addSubview(titleLabel)
         
-        toggleImageView.snp.makeConstraints { make in
+        showMyDestinationButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(20)
             make.centerY.equalToSuperview()
             make.width.height.equalTo(20)
@@ -43,9 +44,13 @@ class MyDestinationView: UIView {
         
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
-            make.trailing.equalTo(toggleImageView.snp.leading).offset(20)
+            make.trailing.equalTo(showMyDestinationButton.snp.leading).offset(20)
             make.centerY.equalToSuperview()
         }
+    }
+    
+    private func bindActions() {
+
     }
 }
 

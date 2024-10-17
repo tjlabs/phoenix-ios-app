@@ -2,7 +2,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class AddNewSectorViewModel {
+class MyDestinationViewModel {
+    let destinationInformationList = BehaviorRelay<[DestinationInformation]>(value: [])
     
     private let disposeBag = DisposeBag()
     
@@ -10,11 +11,4 @@ class AddNewSectorViewModel {
         
     }
     
-    public func initalize() {
-        
-    }
-    
-    private func setupBinding() {
-        
-    }
 }

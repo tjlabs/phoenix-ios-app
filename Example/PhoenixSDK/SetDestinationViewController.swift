@@ -9,6 +9,8 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var topView = TopView(title: "목적지 설정")
     private lazy var myDestinationView = MyDestinationView()
+    private lazy var myDestinationCollectionView = MyDestinationCollectionView()
+    
     private lazy var searchedDestinationView = SearchedDestinationView()
     private lazy var dialogView = DialogView()
     private let addDestinationButton = UIButton().then {
@@ -49,17 +51,19 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
         $0.textColor = .black
     }
     
-    
+    private let viewModel = SetDestinationViewModel()
     private let disposeBag = DisposeBag()
     
     override func viewWillAppear(_ animated: Bool) {
-        loadDestinationInformationList()
+//        loadDestinationInformationList()
+        viewModel.loadDestinationInformationList(for: UserInfoManager.shared.userType)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
         bindActions()
+        bindViewModel()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -89,6 +93,12 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
             .bind(to: searchGuideLabel.rx.isHidden)
             .disposed(by: disposeBag)
         searchTextField.delegate = self
+    }
+    
+    private func bindViewModel() {
+        viewModel.destinationInfoList
+            .bind(to: myDestinationCollectionView.destinationInfoRelay)
+            .disposed(by: disposeBag)
     }
         
     private func tapBackButton() {
@@ -128,6 +138,7 @@ private extension SetDestinationViewController {
         view.addSubview(searchTextField)
         
         view.addSubview(myDestinationView)
+        view.addSubview(myDestinationCollectionView)
         view.addSubview(searchedDestinationView)
         
         view.addSubview(dialogView)
@@ -176,12 +187,17 @@ private extension SetDestinationViewController {
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(searchDestinationView.snp.bottom).offset(10)
         }
+        myDestinationCollectionView.snp.makeConstraints { make in
+            make.height.equalTo(100)
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(myDestinationView.snp.bottom)
+        }
         
         // 장소
         searchedDestinationView.snp.makeConstraints { make in
             make.height.equalTo(40)
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(myDestinationView.snp.bottom)
+            make.top.equalTo(myDestinationCollectionView.snp.bottom)
         }
         
         dialogView.snp.makeConstraints { make in

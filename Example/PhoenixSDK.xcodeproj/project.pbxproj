@@ -42,6 +42,10 @@
 		B33536E92CBFB0A300468A95 /* DestinationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536E82CBFB09E00468A95 /* DestinationManager.swift */; };
 		B33536EB2CBFB2F300468A95 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536EA2CBFB2EF00468A95 /* JSONDecoder.swift */; };
 		B33536ED2CC0B75000468A95 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536EC2CC0B74900468A95 /* UserDefaultsExtension.swift */; };
+		B33536EF2CC0DC5300468A95 /* MyDestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536EE2CC0DC4E00468A95 /* MyDestinationViewModel.swift */; };
+		B33536F12CC0DFFD00468A95 /* SetDestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536F02CC0DFF700468A95 /* SetDestinationViewModel.swift */; };
+		B33536F32CC0E1EC00468A95 /* AddNewSectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536F22CC0E1EB00468A95 /* AddNewSectorViewModel.swift */; };
+		B33536F52CC0E31400468A95 /* MyDestinationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536F42CC0E30E00468A95 /* MyDestinationCollectionView.swift */; };
 		B335746E2C608FB100CBDC72 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335746D2C608FB100CBDC72 /* NetworkManager.swift */; };
 		B33574702C6090A200CBDC72 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335746F2C6090A200CBDC72 /* JSONConverter.swift */; };
 		B34FB8742CBE2282000D8B7A /* PersonalLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */; };
@@ -53,7 +57,6 @@
 		B35A9ED92C5788A00008F3FE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A9ED82C5788A00008F3FE /* UIImageExtension.swift */; };
 		B35A9EDD2C59D8AF0008F3FE /* COEX_B2.csv in Resources */ = {isa = PBXBuildFile; fileRef = B35A9EDC2C59D8AE0008F3FE /* COEX_B2.csv */; };
 		B36AE8662CA55497005B21A2 /* AddNewSectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36AE8652CA55497005B21A2 /* AddNewSectorView.swift */; };
-		B36AE8682CA554B4005B21A2 /* AddNewSectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36AE8672CA554B4005B21A2 /* AddNewSectorViewModel.swift */; };
 		B37224432C51DA14008CAB2F /* DestinationDataCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37224422C51DA14008CAB2F /* DestinationDataCellViewModel.swift */; };
 		B37224452C5205ED008CAB2F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37224442C5205ED008CAB2F /* UIColorExtension.swift */; };
 		B37224472C5205FC008CAB2F /* UIControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37224462C5205FC008CAB2F /* UIControlExtension.swift */; };
@@ -123,6 +126,10 @@
 		B33536E82CBFB09E00468A95 /* DestinationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationManager.swift; sourceTree = "<group>"; };
 		B33536EA2CBFB2EF00468A95 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 		B33536EC2CC0B74900468A95 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		B33536EE2CC0DC4E00468A95 /* MyDestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDestinationViewModel.swift; sourceTree = "<group>"; };
+		B33536F02CC0DFF700468A95 /* SetDestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDestinationViewModel.swift; sourceTree = "<group>"; };
+		B33536F22CC0E1EB00468A95 /* AddNewSectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSectorViewModel.swift; sourceTree = "<group>"; };
+		B33536F42CC0E30E00468A95 /* MyDestinationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDestinationCollectionView.swift; sourceTree = "<group>"; };
 		B335746D2C608FB100CBDC72 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B335746F2C6090A200CBDC72 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalLoginViewController.swift; sourceTree = "<group>"; };
@@ -134,7 +141,6 @@
 		B35A9ED82C5788A00008F3FE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		B35A9EDC2C59D8AE0008F3FE /* COEX_B2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COEX_B2.csv; sourceTree = "<group>"; };
 		B36AE8652CA55497005B21A2 /* AddNewSectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSectorView.swift; sourceTree = "<group>"; };
-		B36AE8672CA554B4005B21A2 /* AddNewSectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSectorViewModel.swift; sourceTree = "<group>"; };
 		B37224422C51DA14008CAB2F /* DestinationDataCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDataCellViewModel.swift; sourceTree = "<group>"; };
 		B37224442C5205ED008CAB2F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		B37224462C5205FC008CAB2F /* UIControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlExtension.swift; sourceTree = "<group>"; };
@@ -304,6 +310,7 @@
 		B333F3A92C4F478C00495539 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B33536F42CC0E30E00468A95 /* MyDestinationCollectionView.swift */,
 				B33536E62CBF8F1300468A95 /* DialogView.swift */,
 				B33536E22CBF83C100468A95 /* SearchedDestinationView.swift */,
 				B33536E02CBF68D300468A95 /* MyDestinationCell.swift */,
@@ -330,9 +337,11 @@
 		B333F3AA2C4F479100495539 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B33536F22CC0E1EB00468A95 /* AddNewSectorViewModel.swift */,
+				B33536F02CC0DFF700468A95 /* SetDestinationViewModel.swift */,
+				B33536EE2CC0DC4E00468A95 /* MyDestinationViewModel.swift */,
 				B333F3B42C4F4F0A00495539 /* DestinationViewModel.swift */,
 				B37224422C51DA14008CAB2F /* DestinationDataCellViewModel.swift */,
-				B36AE8672CA554B4005B21A2 /* AddNewSectorViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -600,6 +609,7 @@
 				B33536E32CBF83DB00468A95 /* SearchedDestinationView.swift in Sources */,
 				B33536ED2CC0B75000468A95 /* UserDefaultsExtension.swift in Sources */,
 				B333F3B52C4F4F0A00495539 /* DestinationViewModel.swift in Sources */,
+				B33536F52CC0E31400468A95 /* MyDestinationCollectionView.swift in Sources */,
 				B37224492C52061C008CAB2F /* UIViewControllerExtension.swift in Sources */,
 				B37224472C5205FC008CAB2F /* UIControlExtension.swift in Sources */,
 				B33536E72CBF8F1700468A95 /* DialogView.swift in Sources */,
@@ -607,15 +617,18 @@
 				B32CF7732CB9127F00A8FA0E /* UIFontExtension.swift in Sources */,
 				B333F3BD2C4F737B00495539 /* DestinationDataCell.swift in Sources */,
 				B35A9ED72C57831D0008F3FE /* JupiterModel.swift in Sources */,
+				B33536EF2CC0DC5300468A95 /* MyDestinationViewModel.swift in Sources */,
 				B33536EB2CBFB2F300468A95 /* JSONDecoder.swift in Sources */,
 				B333F3BF2C4F75CA00495539 /* MyInfoView.swift in Sources */,
 				B333F3AF2C4F497A00495539 /* LoginModel.swift in Sources */,
 				B33574702C6090A200CBDC72 /* JSONConverter.swift in Sources */,
 				B33536DD2CBF553400468A95 /* SetDestinationViewController.swift in Sources */,
+				B33536F12CC0DFFD00468A95 /* SetDestinationViewModel.swift in Sources */,
 				B34FB87A2CBE4F45000D8B7A /* UserInfoManager.swift in Sources */,
 				B33536E12CBF68DB00468A95 /* MyDestinationCell.swift in Sources */,
 				B37224592C539DC9008CAB2F /* JupiterServiceViewController.swift in Sources */,
 				B372244B2C520651008CAB2F /* PopUpViewController.swift in Sources */,
+				B33536F32CC0E1EC00468A95 /* AddNewSectorViewModel.swift in Sources */,
 				B333F3B92C4F4F4100495539 /* DestinationViewController.swift in Sources */,
 				B333F3B32C4F4EFF00495539 /* DestinationModel.swift in Sources */,
 				B34FB8742CBE2282000D8B7A /* PersonalLoginViewController.swift in Sources */,
@@ -625,7 +638,6 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				B35A9ED52C5782F10008F3FE /* ImageCacheManager.swift in Sources */,
 				B3BA95F72BFF26D1002625FA /* VGSViewController.swift in Sources */,
-				B36AE8682CA554B4005B21A2 /* AddNewSectorViewModel.swift in Sources */,
 				B33536E92CBFB0A300468A95 /* DestinationManager.swift in Sources */,
 				B36AE8662CA55497005B21A2 /* AddNewSectorView.swift in Sources */,
 			);
