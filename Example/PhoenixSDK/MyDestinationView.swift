@@ -16,9 +16,12 @@ class MyDestinationView: UIView {
     }
     
     private let showMyDestinationButton = UIButton().then {
+        $0.isUserInteractionEnabled = false
         $0.setImage(UIImage(named: "arrowDown_icon"), for: .normal)
         $0.setImage(UIImage(named: "arrowUp_icon"), for: .selected)
     }
+    
+    let showMyDestinationButtonTapped = PublishRelay<Void>()
     
     private let disposeBag = DisposeBag()
     init() {
@@ -50,7 +53,19 @@ class MyDestinationView: UIView {
     }
     
     private func bindActions() {
+        let tapGesture = UITapGestureRecognizer()
+        self.addGestureRecognizer(tapGesture)
 
+        tapGesture.rx.event
+            .bind { [weak self] _ in
+                self?.showMyDestinationButtonTapped.accept(())
+                self?.showMyDestinationButton.isSelected.toggle()
+            }
+            .disposed(by: disposeBag)
+        
+//        showMyDestinationButton.rx.tap
+//            .bind(to: showMyDestinationButtonTapped)
+//            .disposed(by: disposeBag)
     }
 }
 

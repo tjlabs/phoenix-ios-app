@@ -18,6 +18,7 @@ class MyDestinationCollectionView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MyDestinationCell.self, forCellWithReuseIdentifier: MyDestinationCell.identifier)
+        collectionView.register(MyDestinationEmptyCell.self, forCellWithReuseIdentifier: MyDestinationEmptyCell.identifier) // New cell for "no data"
         return collectionView
     }()
 
@@ -38,7 +39,7 @@ class MyDestinationCollectionView: UIView {
     
     private func setupLayout() {
         addSubview(collectionView)
-        collectionView.backgroundColor = .systemCyan
+//        collectionView.backgroundColor = .systemCyan
         
         collectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(10)
@@ -59,12 +60,16 @@ class MyDestinationCollectionView: UIView {
             })
             .disposed(by: disposeBag)
     }
+    
+    public func getDestinationInfoListCount() -> Int {
+        return self.destinationInfoList.count
+    }
 }
 
 
 extension MyDestinationCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 36)
+        return CGSize(width: collectionView.frame.width, height: 70)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -74,17 +79,34 @@ extension MyDestinationCollectionView: UICollectionViewDelegateFlowLayout {
 
 extension MyDestinationCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("(Phoenix) Cell : count = \(destinationInfoList.count)")
-        return destinationInfoList.count
+        return destinationInfoList.isEmpty ? 1 : destinationInfoList.count
+//        return destinationInfoList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyDestinationCell.identifier, for: indexPath) as? MyDestinationCell else {
-            return UICollectionViewCell()
+        if destinationInfoList.isEmpty {
+            // Show "No Data" cell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyDestinationEmptyCell.identifier, for: indexPath) as? MyDestinationEmptyCell else {
+                return UICollectionViewCell()
+            }
+            cell.configure(message: "추가된 내 장소가 없습니다.")
+            return cell
+        } else {
+            // Show normal destination cell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyDestinationCell.identifier, for: indexPath) as? MyDestinationCell else {
+                return UICollectionViewCell()
+            }
+            let destination = destinationInfoList[indexPath.item]
+            cell.configure(with: destination)
+            return cell
         }
         
-        let destination = destinationInfoList[indexPath.item]
-        cell.configure(with: destination)
-        return cell
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyDestinationCell.identifier, for: indexPath) as? MyDestinationCell else {
+//            return UICollectionViewCell()
+//        }
+//        
+//        let destination = destinationInfoList[indexPath.item]
+//        cell.configure(with: destination)
+//        return cell
     }
 }

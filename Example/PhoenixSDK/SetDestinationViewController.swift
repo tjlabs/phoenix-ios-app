@@ -2,6 +2,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SnapKit
 
 class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     static let identifier = "SetDestinationViewController"
@@ -10,6 +11,8 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     private lazy var topView = TopView(title: "목적지 설정")
     private lazy var myDestinationView = MyDestinationView()
     private lazy var myDestinationCollectionView = MyDestinationCollectionView()
+    private var myDestinationCollectionViewHeightConstraint: Constraint?
+    private var isExpanded = false
     
     private lazy var searchedDestinationView = SearchedDestinationView()
     private lazy var dialogView = DialogView()
@@ -55,7 +58,6 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     private let disposeBag = DisposeBag()
     
     override func viewWillAppear(_ animated: Bool) {
-//        loadDestinationInformationList()
         viewModel.loadDestinationInformationList(for: UserInfoManager.shared.userType)
     }
     
@@ -87,12 +89,18 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
                 self.tapAddDestinationButton()
             })
             .disposed(by: disposeBag)
-
+        
         searchTextField.rx.text.orEmpty
             .map { !$0.isEmpty }
             .bind(to: searchGuideLabel.rx.isHidden)
             .disposed(by: disposeBag)
         searchTextField.delegate = self
+        
+        myDestinationView.showMyDestinationButtonTapped
+            .subscribe(onNext: { [weak self] in
+                self?.toggleCollectionViewHeight()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func bindViewModel() {
@@ -100,7 +108,29 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
             .bind(to: myDestinationCollectionView.destinationInfoRelay)
             .disposed(by: disposeBag)
     }
-        
+    
+    private func toggleCollectionViewHeight() {
+        let itemCount = myDestinationCollectionView.getDestinationInfoListCount()
+        let itemHeight: CGFloat = 70
+        let maxHeight: CGFloat = itemHeight*5
+        let calculatedHeight = itemCount == 0 ? itemHeight : min(CGFloat(itemCount) * itemHeight, maxHeight)
+
+        if isExpanded {
+            myDestinationCollectionView.snp.updateConstraints { make in
+                self.myDestinationCollectionViewHeightConstraint?.update(offset: 0)
+            }
+        } else {
+            myDestinationCollectionView.snp.updateConstraints { make in
+                self.myDestinationCollectionViewHeightConstraint?.update(offset: calculatedHeight)
+            }
+        }
+        isExpanded.toggle()
+
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     private func tapBackButton() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -187,10 +217,17 @@ private extension SetDestinationViewController {
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(searchDestinationView.snp.bottom).offset(10)
         }
+        
+//        myDestinationCollectionView.snp.makeConstraints { make in
+//            make.height.equalTo(100)
+//            make.leading.trailing.equalToSuperview()
+//            make.top.equalTo(myDestinationView.snp.bottom)
+//        }
+        
         myDestinationCollectionView.snp.makeConstraints { make in
-            make.height.equalTo(100)
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(myDestinationView.snp.bottom)
+            self.myDestinationCollectionViewHeightConstraint = make.height.equalTo(0).constraint
         }
         
         // 장소

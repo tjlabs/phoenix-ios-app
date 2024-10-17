@@ -5,14 +5,14 @@ final class MyDestinationCell: UICollectionViewCell {
     static let identifier = "MyDestinationCell"
     
     let nameLabel = UILabel().then {
-        $0.backgroundColor = .red
+//        $0.backgroundColor = .red
         $0.font = UIFont.pretendardExtraBold(size: 20)
         $0.textAlignment = .left
         $0.textColor = .black
     }
     
     let serviceAvailabilityLabel = UILabel().then {
-        $0.backgroundColor = .green
+//        $0.backgroundColor = .green
         $0.font = UIFont.pretendardExtraBold(size: 15)
         $0.textAlignment = .left
         $0.textColor = .systemBlue
@@ -26,7 +26,7 @@ final class MyDestinationCell: UICollectionViewCell {
     
     private let stackViewTitle: UIStackView = {
         let stackView = UIStackView()
-        stackView.backgroundColor = .yellow
+//        stackView.backgroundColor = .yellow
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally
@@ -36,11 +36,11 @@ final class MyDestinationCell: UICollectionViewCell {
     
     private let stackViewTotal: UIStackView = {
         let stackView = UIStackView()
-        stackView.backgroundColor = .blue
+//        stackView.backgroundColor = .blue
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally
-        stackView.spacing = 5
+        stackView.spacing = 0
         return stackView
     }()
     
@@ -62,7 +62,11 @@ final class MyDestinationCell: UICollectionViewCell {
         
         stackViewTotal.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(10)
-            make.top.bottom.equalToSuperview().inset(2)
+            make.top.bottom.equalToSuperview().inset(5)
+        }
+        
+        serviceAvailabilityLabel.snp.makeConstraints { make in
+            make.width.equalTo(150)
         }
     }
     

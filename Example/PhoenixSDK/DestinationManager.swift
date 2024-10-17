@@ -76,6 +76,7 @@ public class DestinationManager {
             self.destinationInfoList = loadedStruct
             print("(Phoenix) Destination List : Load Destination of Personal User // \(self.destinationInfoList)")
         } else {
+            self.destinationInfoList = [DestinationInformation]()
             print("(Phoenix) Destination List : Load Destination of Personal User // empty")
         }
     }
@@ -87,6 +88,7 @@ public class DestinationManager {
             self.destinationInfoList = loadedStruct
             print("(Phoenix) Destination List : Load Destination of Business User // \(self.destinationInfoList)")
         } else {
+            self.destinationInfoList = [DestinationInformation]()
             print("(Phoenix) Destination List : Load Destination of Business User // empty")
         }
     }
