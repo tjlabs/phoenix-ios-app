@@ -52,6 +52,10 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     
     private let disposeBag = DisposeBag()
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadDestinationInformationList()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
@@ -59,6 +63,7 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     
@@ -100,6 +105,14 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
             self.goToAddDestinationVC()
         } else {
             dialogView.toggleDialogViewHidden()
+        }
+    }
+    
+    private func loadDestinationInformationList() {
+        if USER_TYPE == .BUSINESS {
+            DestinationManager.shared.loadBusinessDestinationInformationList(businessUserInfo: UserInfoManager.shared.getBussinessUserInfo())
+        } else if USER_TYPE == .PERSONAL {
+            DestinationManager.shared.loadPersonalDestinationInformationList(personalUserInfo: UserInfoManager.shared.getPersonalUserInfo())
         }
     }
 }

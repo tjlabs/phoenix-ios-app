@@ -54,6 +54,10 @@ public class UserInfoManager {
         self.personalUserInfo = userInfo
     }
     
+    public func getPersonalUserInfo() -> PersonalUserInfo {
+        return self.personalUserInfo
+    }
+    
     public func savePersonalUserInfo(userInfo: PersonalUserInfo, initialize: Bool) {
         if (initialize) {
             userDefaults.set(nil, forKey: "personalUserEmail")
@@ -122,6 +126,10 @@ public class UserInfoManager {
     public func setBusinessUserInfo(userInfo: BusinessUserInfo) {
         self.userType = UserType.BUSINESS
         self.businessUserInfo = userInfo
+    }
+    
+    public func getBussinessUserInfo() -> BusinessUserInfo {
+        return self.businessUserInfo
     }
     
     public func saveBusinessUserInfo(userInfo: BusinessUserInfo, initialize: Bool) {

@@ -41,6 +41,7 @@
 		B33536E72CBF8F1700468A95 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536E62CBF8F1300468A95 /* DialogView.swift */; };
 		B33536E92CBFB0A300468A95 /* DestinationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536E82CBFB09E00468A95 /* DestinationManager.swift */; };
 		B33536EB2CBFB2F300468A95 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536EA2CBFB2EF00468A95 /* JSONDecoder.swift */; };
+		B33536ED2CC0B75000468A95 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536EC2CC0B74900468A95 /* UserDefaultsExtension.swift */; };
 		B335746E2C608FB100CBDC72 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335746D2C608FB100CBDC72 /* NetworkManager.swift */; };
 		B33574702C6090A200CBDC72 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335746F2C6090A200CBDC72 /* JSONConverter.swift */; };
 		B34FB8742CBE2282000D8B7A /* PersonalLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */; };
@@ -121,6 +122,7 @@
 		B33536E62CBF8F1300468A95 /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		B33536E82CBFB09E00468A95 /* DestinationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationManager.swift; sourceTree = "<group>"; };
 		B33536EA2CBFB2EF00468A95 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		B33536EC2CC0B74900468A95 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		B335746D2C608FB100CBDC72 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B335746F2C6090A200CBDC72 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalLoginViewController.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 		B3A1E6EE2C2156DF008FA57A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B33536EC2CC0B74900468A95 /* UserDefaultsExtension.swift */,
 				B33536EA2CBFB2EF00468A95 /* JSONDecoder.swift */,
 				B32CF7722CB9127A00A8FA0E /* UIFontExtension.swift */,
 				B3A1E6EF2C2156F3008FA57A /* UIViewExtension.swift */,
@@ -595,6 +598,7 @@
 				B34FB8762CBE228F000D8B7A /* BusinessLoginViewController.swift in Sources */,
 				B335746E2C608FB100CBDC72 /* NetworkManager.swift in Sources */,
 				B33536E32CBF83DB00468A95 /* SearchedDestinationView.swift in Sources */,
+				B33536ED2CC0B75000468A95 /* UserDefaultsExtension.swift in Sources */,
 				B333F3B52C4F4F0A00495539 /* DestinationViewModel.swift in Sources */,
 				B37224492C52061C008CAB2F /* UIViewControllerExtension.swift in Sources */,
 				B37224472C5205FC008CAB2F /* UIControlExtension.swift in Sources */,

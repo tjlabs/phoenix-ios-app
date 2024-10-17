@@ -12,12 +12,12 @@ public enum UserType: String {
     case BUSINESS
 }
 
-public struct PersonalUserInfo {
+public struct PersonalUserInfo: Codable {
     var email: String
     var password: String
 }
 
-public struct BusinessUserInfo {
+public struct BusinessUserInfo: Codable {
     var name: String
     var car_number: String
     var company: String

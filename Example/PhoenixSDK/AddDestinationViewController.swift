@@ -64,6 +64,7 @@ class AddDestinationViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     
@@ -96,6 +97,7 @@ class AddDestinationViewController: UIViewController, UITextFieldDelegate {
     
     private func addMyDestination() {
         let code = self.codeTextField.text ?? ""
+        self.codeTextField.resignFirstResponder()
         if code.isEmpty {
             // 코드 입력
             dialogView.changeDialogInformation(message: "유효한 코드를 입력해주세요", buttonColor: .systemRed)
@@ -112,7 +114,10 @@ class AddDestinationViewController: UIViewController, UITextFieldDelegate {
                             dialogView.changeDialogInformation(message: "목적지 등록 실패", buttonColor: .systemRed)
                             dialogView.toggleDialogViewHidden()
                         } else {
-                            
+                            // 성공
+                            DestinationManager.shared.makeDestinationInformationList(outputSecotors: outputSectors)
+                            dialogView.changeDialogInformation(message: "목적지 등록 성공", buttonColor: .black)
+                            dialogView.toggleDialogViewHidden()
                         }
                     } else {
                         // 실패
