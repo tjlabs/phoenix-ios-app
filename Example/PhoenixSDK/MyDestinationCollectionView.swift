@@ -19,7 +19,7 @@ class MyDestinationCollectionView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MyDestinationCell.self, forCellWithReuseIdentifier: MyDestinationCell.identifier)
-        collectionView.register(MyDestinationEmptyCell.self, forCellWithReuseIdentifier: MyDestinationEmptyCell.identifier) // New cell for "no data"
+        collectionView.register(MyDestinationEmptyCell.self, forCellWithReuseIdentifier: MyDestinationEmptyCell.identifier)
         return collectionView
     }()
 
@@ -53,7 +53,6 @@ class MyDestinationCollectionView: UIView {
     }
     
     private func bindCollectionView() {
-        // Bind the destination info relay to update the collectionView data source
         destinationInfoRelay
             .subscribe(onNext: { [weak self] destinations in
                 self?.destinationInfoList = destinations
@@ -85,7 +84,7 @@ extension MyDestinationCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if destinationInfoList.isEmpty {
-            // Show "No Data" cell
+            // Show "Empty Data" cell
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyDestinationEmptyCell.identifier, for: indexPath) as? MyDestinationEmptyCell else {
                 return UICollectionViewCell()
             }

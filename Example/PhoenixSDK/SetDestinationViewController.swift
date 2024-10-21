@@ -144,11 +144,12 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     
     private func handleDestinationSelection(_ destination: DestinationInformation) {
         print("(Phoenix) : Selected Destination \(destination.name), \(destination.address)")
-        goToSelectDestinationVC()
+        goToSelectDestinationVC(destination: destination)
     }
     
-    private func goToSelectDestinationVC() {
+    private func goToSelectDestinationVC(destination: DestinationInformation) {
         let vc = SelectDestinationBottomViewController()
+        vc.destinationInfo = destination
         self.presentBottomSheet(viewController: vc)
     }
     

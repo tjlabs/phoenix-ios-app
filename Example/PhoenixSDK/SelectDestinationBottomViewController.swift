@@ -2,10 +2,13 @@ import UIKit
 
 class SelectDestinationBottomViewController: BottomSheetViewController {
     // MARK: - Properties
-    var destinationInfo = DestinationInformation(name: "", address: "", coord: DestinationCoord(latitude: 0, longitude: 0), description: "")
+    var destinationInfo: DestinationInformation? {
+        didSet {
+            updateUI()
+        }
+    }
     
     // MARK: - UI
-    // 1
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 24)
@@ -62,22 +65,25 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        updateUI()
     }
     
     private func setupView() {
-        // 2
-        // Main content to be added in bottom sheet
         contentStackView.addArrangedSubview(topLabelStackView)
         contentStackView.addArrangedSubview(bodyLabel)
         contentStackView.addArrangedSubview(dismissButton)
         bodyLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         
-        // 3
         self.setContent(content: contentStackView)
     }
 
     @objc private func handleDismissButton() {
-        // 4
         self.dismissBottomSheet()
+    }
+    
+    private func updateUI() {
+        guard let destination = destinationInfo, isViewLoaded else { return }
+        titleLabel.text = destination.name
+        descriptionLabel.text = destination.description
     }
 }
