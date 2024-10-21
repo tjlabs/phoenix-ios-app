@@ -101,12 +101,23 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
                 self?.toggleCollectionViewHeight()
             })
             .disposed(by: disposeBag)
+        
+        myDestinationCollectionView.cellSelected
+            .subscribe(onNext: { [weak self] index in
+                self?.viewModel.selectDestination(at: index)
+        }).disposed(by: disposeBag)
     }
     
     private func bindViewModel() {
         viewModel.destinationInfoList
             .bind(to: myDestinationCollectionView.destinationInfoRelay)
             .disposed(by: disposeBag)
+        
+        viewModel.selectedDestination
+            .subscribe(onNext: { [weak self] destination in
+                guard let destination = destination else { return }
+                self?.handleDestinationSelection(destination)
+            }).disposed(by: disposeBag)
     }
     
     private func toggleCollectionViewHeight() {
@@ -129,6 +140,16 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    private func handleDestinationSelection(_ destination: DestinationInformation) {
+        print("(Phoenix) : Selected Destination \(destination.name), \(destination.address)")
+        goToSelectDestinationVC()
+    }
+    
+    private func goToSelectDestinationVC() {
+        let vc = SelectDestinationBottomViewController()
+        self.presentBottomSheet(viewController: vc)
     }
     
     private func tapBackButton() {
@@ -217,12 +238,6 @@ private extension SetDestinationViewController {
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(searchDestinationView.snp.bottom).offset(10)
         }
-        
-//        myDestinationCollectionView.snp.makeConstraints { make in
-//            make.height.equalTo(100)
-//            make.leading.trailing.equalToSuperview()
-//            make.top.equalTo(myDestinationView.snp.bottom)
-//        }
         
         myDestinationCollectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()

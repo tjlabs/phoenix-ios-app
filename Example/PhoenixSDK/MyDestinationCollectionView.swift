@@ -9,6 +9,7 @@ import Then
 
 class MyDestinationCollectionView: UIView {
     let destinationInfoRelay = BehaviorRelay<[DestinationInformation]>(value: [])
+    let cellSelected = PublishRelay<Int>()
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -80,7 +81,6 @@ extension MyDestinationCollectionView: UICollectionViewDelegateFlowLayout {
 extension MyDestinationCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return destinationInfoList.isEmpty ? 1 : destinationInfoList.count
-//        return destinationInfoList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -100,13 +100,9 @@ extension MyDestinationCollectionView: UICollectionViewDataSource {
             cell.configure(with: destination)
             return cell
         }
-        
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyDestinationCell.identifier, for: indexPath) as? MyDestinationCell else {
-//            return UICollectionViewCell()
-//        }
-//        
-//        let destination = destinationInfoList[indexPath.item]
-//        cell.configure(with: destination)
-//        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        cellSelected.accept(indexPath.item)
     }
 }
