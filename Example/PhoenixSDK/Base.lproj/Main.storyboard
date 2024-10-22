@@ -412,6 +412,39 @@
             </objects>
             <point key="canvasLocation" x="1433" y="1353"/>
         </scene>
+        <!--Vehicle Guidance View Controller-->
+        <scene sceneID="aso-tT-DTV">
+            <objects>
+                <viewController storyboardIdentifier="VehicleGuidanceViewController" id="lEL-11-ikf" customClass="VehicleGuidanceViewController" customModule="PhoenixSDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UW7-yP-kmF"/>
+                        <viewControllerLayoutGuide type="bottom" id="KpZ-A8-dvo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IyR-8O-8Q1">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OgX-ch-q4e">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OgX-ch-q4e" firstAttribute="top" secondItem="IyR-8O-8Q1" secondAttribute="top" id="BNe-BN-flE"/>
+                            <constraint firstAttribute="trailing" secondItem="OgX-ch-q4e" secondAttribute="trailing" id="XRe-ac-B0M"/>
+                            <constraint firstItem="OgX-ch-q4e" firstAttribute="leading" secondItem="IyR-8O-8Q1" secondAttribute="leading" id="a60-6J-ePx"/>
+                            <constraint firstAttribute="bottom" secondItem="OgX-ch-q4e" secondAttribute="bottom" id="xx1-ij-EbT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainContainerView" destination="OgX-ch-q4e" id="1PN-gE-TKY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VOf-AM-rop" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2222.7906976744184" y="1352.5751072961375"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="BXD-eP-pzI">
             <objects>

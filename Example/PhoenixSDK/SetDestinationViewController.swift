@@ -152,6 +152,17 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     private func goToSelectDestinationVC(destination: DestinationInformation) {
         let vc = SelectDestinationBottomViewController()
         vc.destinationInfo = destination
+        vc.dismissCompletion = { [weak self] reason in
+//            print("(Phoenix) dismissReason : \(reason)")
+            switch reason {
+            case .timer, .button:
+                self?.goToVehicleGuidanceVC(destination: destination)
+            case .dimmedView, .scrollDown:
+                // Do nothing
+                break
+            }
+        }
+        
         self.presentBottomSheet(viewController: vc)
     }
     
@@ -162,6 +173,12 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     private func goToAddDestinationVC() {
         guard let addDestinationVC = self.storyboard?.instantiateViewController(withIdentifier: AddDestinationViewController.identifier) as? AddDestinationViewController else { return }
         self.navigationController?.pushViewController(addDestinationVC, animated: true)
+    }
+    
+    private func goToVehicleGuidanceVC(destination: DestinationInformation) {
+        guard let vehicleGuidanceVC = self.storyboard?.instantiateViewController(withIdentifier: VehicleGuidanceViewController.identifier) as? VehicleGuidanceViewController else { return }
+        vehicleGuidanceVC.destinationInfo = destination
+        self.navigationController?.pushViewController(vehicleGuidanceVC, animated: true)
     }
     
     private func tapAddDestinationButton() {

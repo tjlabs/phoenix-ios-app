@@ -112,12 +112,8 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
     
     private func startCountdown() {
         countdownView.startCountdown { [weak self] in
-            self?.dismissBottomSheet()
+            self?.dismissBottomSheet(reason: .timer)
         }
-    }
-
-    @objc private func handleDismissButton() {
-        self.dismissBottomSheet()
     }
     
     private func updateUI() {

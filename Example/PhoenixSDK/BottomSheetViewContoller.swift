@@ -1,7 +1,23 @@
 import UIKit
 
-class BottomSheetViewController: UIViewController {
+enum DismissReason {
+    case timer
+    case button
+    case scrollDown
+    case dimmedView
+}
 
+class BottomSheetViewController: UIViewController {
+    var dismissCompletion: ((DismissReason) -> Void)?
+    
+    @objc public func handleTapDimmedView() {
+        dismissBottomSheet(reason: .dimmedView)
+    }
+
+    @objc public func handleDismissButton() {
+        dismissBottomSheet(reason: .button)
+    }
+    
     private var minTopSpacing: CGFloat = 20
     private let minDismissiblePanHeight: CGFloat = 20
     private let maxDimmedAlpha = 0.5
@@ -122,7 +138,7 @@ class BottomSheetViewController: UIViewController {
             self.mainContainerView.frame.origin.y = currentY + pannedHeight
         case .ended:
             if pannedHeight >= minDismissiblePanHeight {
-                dismissBottomSheet()
+                dismissBottomSheet(reason: .scrollDown)
             } else {
                 UIView.animate(withDuration: 0.2) {
                     self.mainContainerView.frame.origin.y = currentY
@@ -131,10 +147,6 @@ class BottomSheetViewController: UIViewController {
         default:
             break
         }
-    }
-
-    @objc private func handleTapDimmedView() {
-        dismissBottomSheet()
     }
 
     private func animatePresent() {
@@ -146,12 +158,14 @@ class BottomSheetViewController: UIViewController {
         })
     }
 
-    func dismissBottomSheet() {
+    func dismissBottomSheet(reason: DismissReason) {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
             self.dimmedView.alpha = 0
             self.mainContainerView.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
-        }, completion: { _ in
-            self.dismiss(animated: false, completion: nil)
+        }, completion: { [weak self] _ in
+            self?.dismiss(animated: false, completion: {
+                self?.dismissCompletion?(reason)
+            })
         })
     }
 
