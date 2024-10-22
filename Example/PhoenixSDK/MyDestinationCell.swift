@@ -38,7 +38,7 @@ final class MyDestinationCell: UICollectionViewCell {
         let stackView = UIStackView()
 //        stackView.backgroundColor = .blue
         stackView.axis = .vertical
-        stackView.alignment = .fill
+        stackView.alignment = .top
         stackView.distribution = .fillProportionally
         stackView.spacing = 0
         return stackView

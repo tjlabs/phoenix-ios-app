@@ -26,7 +26,7 @@ class BottomSheetViewController: UIViewController {
     /// Top bar view that draggable to dismiss
     private lazy var topBarView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray.withAlphaComponent(0.1)
+//        view.backgroundColor = .lightGray.withAlphaComponent(0.1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -105,10 +105,12 @@ class BottomSheetViewController: UIViewController {
         mainContainerView.addSubview(contentView)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            contentView.leadingAnchor.constraint(equalTo: mainContainerView.leadingAnchor, constant: 24),
-            contentView.trailingAnchor.constraint(equalTo: mainContainerView.trailingAnchor, constant: -24),
-            contentView.topAnchor.constraint(equalTo: topBarView.bottomAnchor, constant: 16),
-            contentView.bottomAnchor.constraint(equalTo: mainContainerView.bottomAnchor, constant: -32)
+//            contentView.leadingAnchor.constraint(equalTo: mainContainerView.leadingAnchor, constant: 24),
+//            contentView.trailingAnchor.constraint(equalTo: mainContainerView.trailingAnchor, constant: -24),
+            contentView.leadingAnchor.constraint(equalTo: mainContainerView.leadingAnchor, constant: 0),
+            contentView.trailingAnchor.constraint(equalTo: mainContainerView.trailingAnchor, constant: 0),
+            contentView.topAnchor.constraint(equalTo: topBarView.bottomAnchor, constant: 10),
+            contentView.bottomAnchor.constraint(equalTo: mainContainerView.bottomAnchor, constant: -20)
         ])
     }
 
