@@ -49,6 +49,7 @@
 		B33536F72CC0F5A200468A95 /* MyDestinationEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536F62CC0F59800468A95 /* MyDestinationEmptyCell.swift */; };
 		B33536F92CC62E9800468A95 /* BottomSheetViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536F82CC62E9000468A95 /* BottomSheetViewContoller.swift */; };
 		B33536FB2CC6391000468A95 /* SelectDestinationBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536FA2CC6391000468A95 /* SelectDestinationBottomViewController.swift */; };
+		B33537032CC7590E00468A95 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33537022CC7590800468A95 /* CircularProgressView.swift */; };
 		B335746E2C608FB100CBDC72 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335746D2C608FB100CBDC72 /* NetworkManager.swift */; };
 		B33574702C6090A200CBDC72 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335746F2C6090A200CBDC72 /* JSONConverter.swift */; };
 		B34FB8742CBE2282000D8B7A /* PersonalLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */; };
@@ -136,6 +137,7 @@
 		B33536F62CC0F59800468A95 /* MyDestinationEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDestinationEmptyCell.swift; sourceTree = "<group>"; };
 		B33536F82CC62E9000468A95 /* BottomSheetViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "\U0010BottomSheetViewContoller.swift"; sourceTree = "<group>"; };
 		B33536FA2CC6391000468A95 /* SelectDestinationBottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDestinationBottomViewController.swift; sourceTree = "<group>"; };
+		B33537022CC7590800468A95 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		B335746D2C608FB100CBDC72 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B335746F2C6090A200CBDC72 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalLoginViewController.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 		B333F3A92C4F478C00495539 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B33537022CC7590800468A95 /* CircularProgressView.swift */,
 				B33536F82CC62E9000468A95 /* BottomSheetViewContoller.swift */,
 				B33536F62CC0F59800468A95 /* MyDestinationEmptyCell.swift */,
 				B33536F42CC0E30E00468A95 /* MyDestinationCollectionView.swift */,
@@ -639,6 +642,7 @@
 				B33536E12CBF68DB00468A95 /* MyDestinationCell.swift in Sources */,
 				B37224592C539DC9008CAB2F /* JupiterServiceViewController.swift in Sources */,
 				B33536F92CC62E9800468A95 /* BottomSheetViewContoller.swift in Sources */,
+				B33537032CC7590E00468A95 /* CircularProgressView.swift in Sources */,
 				B372244B2C520651008CAB2F /* PopUpViewController.swift in Sources */,
 				B33536F32CC0E1EC00468A95 /* AddNewSectorViewModel.swift in Sources */,
 				B333F3B92C4F4F4100495539 /* DestinationViewController.swift in Sources */,

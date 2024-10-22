@@ -10,7 +10,12 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
     }
     
     // MARK: - UI
-
+    private lazy var countdownView: CircularProgressView = {
+        let view = CircularProgressView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var dismissButton: UIButton = {
         let button = UIButton()
         button.setTitle("길안내 시작", for: .normal)
@@ -30,7 +35,7 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
-        view.spacing = 8
+        view.spacing = 10
         return view
     }()
     
@@ -72,6 +77,8 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
         super.viewDidLoad()
         setupView()
         updateUI()
+        
+        startCountdown()
     }
     
     private func setupView() {
@@ -79,11 +86,25 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
         contentStackView.addArrangedSubview(descriptionLabel)
         contentStackView.addArrangedSubview(dismissButton)
         
+        dismissButton.addSubview(countdownView)
+//        countdownView.backgroundColor = .red
+        countdownView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(40)
+            make.width.height.equalTo(40)
+        }
+        
         serviceAvailabilityLabel.snp.makeConstraints { make in
             make.width.equalTo(130)
         }
         
         self.setContent(content: contentStackView)
+    }
+    
+    private func startCountdown() {
+        countdownView.startCountdown { [weak self] in
+            self?.dismissBottomSheet()
+        }
     }
 
     @objc private func handleDismissButton() {
@@ -94,6 +115,6 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
         guard let destination = destinationInfo, isViewLoaded else { return }
         nameLabel.text = "     " + destination.name
         serviceAvailabilityLabel.text = "서비스 가능 지역"
-        descriptionLabel.text = "     " + destination.description
+        descriptionLabel.text = "      " + destination.description
     }
 }
