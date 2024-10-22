@@ -1,18 +1,16 @@
 import UIKit
 import SnapKit
 
-final class MyDestinationCell: UICollectionViewCell {
-    static let identifier = "MyDestinationCell"
+final class SearchedDestinationCell: UICollectionViewCell {
+    static let identifier = "SearchedDestinationCell"
     
     let nameLabel = UILabel().then {
-//        $0.backgroundColor = .red
         $0.font = UIFont.pretendardExtraBold(size: 20)
         $0.textAlignment = .left
         $0.textColor = .black
     }
     
     let serviceAvailabilityLabel = UILabel().then {
-//        $0.backgroundColor = .green
         $0.font = UIFont.pretendardExtraBold(size: 15)
         $0.textAlignment = .left
         $0.textColor = .systemBlue
@@ -26,7 +24,6 @@ final class MyDestinationCell: UICollectionViewCell {
     
     private let stackViewTitle: UIStackView = {
         let stackView = UIStackView()
-//        stackView.backgroundColor = .yellow
         stackView.axis = .horizontal
         stackView.alignment = .fill
 //        stackView.distribution = .fillProportionally
@@ -36,7 +33,6 @@ final class MyDestinationCell: UICollectionViewCell {
     
     private let stackViewTotal: UIStackView = {
         let stackView = UIStackView()
-//        stackView.backgroundColor = .blue
         stackView.axis = .vertical
         stackView.alignment = .top
         stackView.distribution = .fillProportionally

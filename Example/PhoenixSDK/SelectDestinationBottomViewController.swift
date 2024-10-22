@@ -18,18 +18,20 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
     
     private lazy var dismissButton: UIButton = {
         let button = UIButton()
-        button.setTitle("길안내 시작", for: .normal)
-        button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .black
-        button.titleLabel?.textAlignment = .center
-        button.titleLabel?.font = UIFont.pretendardBold(size: 24)
-
         button.addTarget(self, action: #selector(handleDismissButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.heightAnchor.constraint(equalToConstant: 54).isActive = true
         button.isUserInteractionEnabled = true
         return button
     }()
+    
+    private lazy var buttonTitleLabel = UILabel().then {
+        $0.text = "길안내 시작"
+        $0.textColor = .white
+        $0.font = UIFont.pretendardBold(size: 24)
+        $0.textAlignment = .center
+    }
 
     private lazy var contentStackView: UIStackView = {
         let view = UIStackView()
@@ -64,7 +66,7 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
 //        stackView.backgroundColor = .yellow
         stackView.axis = .horizontal
         stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
+//        stackView.distribution = .fillProportionally
         stackView.spacing = 10
         stackView.addArrangedSubview(nameLabel)
         stackView.addArrangedSubview(serviceAvailabilityLabel)
@@ -86,11 +88,15 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
         contentStackView.addArrangedSubview(descriptionLabel)
         contentStackView.addArrangedSubview(dismissButton)
         
+        dismissButton.addSubview(buttonTitleLabel)
         dismissButton.addSubview(countdownView)
-//        countdownView.backgroundColor = .red
+        buttonTitleLabel.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+        }
+        
         countdownView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().inset(40)
+            make.leading.equalTo(buttonTitleLabel.snp.trailing).offset(10)
             make.width.height.equalTo(40)
         }
         

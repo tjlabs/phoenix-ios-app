@@ -15,6 +15,8 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     private var isExpanded = false
     
     private lazy var searchedDestinationView = SearchedDestinationView()
+    private lazy var searchedDestinationCollectionView = SearchedDestinationCollectionView()
+    
     private lazy var dialogView = DialogView()
     private let addDestinationButton = UIButton().then {
         $0.setImage(UIImage(named: "plus_button"), for: .normal)
@@ -192,6 +194,7 @@ private extension SetDestinationViewController {
         view.addSubview(myDestinationView)
         view.addSubview(myDestinationCollectionView)
         view.addSubview(searchedDestinationView)
+        view.addSubview(searchedDestinationCollectionView)
         
         view.addSubview(dialogView)
         
@@ -251,6 +254,12 @@ private extension SetDestinationViewController {
             make.height.equalTo(40)
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(myDestinationCollectionView.snp.bottom)
+        }
+        
+        searchedDestinationCollectionView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(searchedDestinationView.snp.bottom)
+            make.bottom.equalToSuperview()
         }
         
         dialogView.snp.makeConstraints { make in

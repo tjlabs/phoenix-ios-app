@@ -50,6 +50,8 @@
 		B33536F92CC62E9800468A95 /* BottomSheetViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536F82CC62E9000468A95 /* BottomSheetViewContoller.swift */; };
 		B33536FB2CC6391000468A95 /* SelectDestinationBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33536FA2CC6391000468A95 /* SelectDestinationBottomViewController.swift */; };
 		B33537032CC7590E00468A95 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33537022CC7590800468A95 /* CircularProgressView.swift */; };
+		B33537052CC766D800468A95 /* SearchedDestinationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33537042CC766D200468A95 /* SearchedDestinationCollectionView.swift */; };
+		B33537072CC7672100468A95 /* SearchedDestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33537062CC7671D00468A95 /* SearchedDestinationCell.swift */; };
 		B335746E2C608FB100CBDC72 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335746D2C608FB100CBDC72 /* NetworkManager.swift */; };
 		B33574702C6090A200CBDC72 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335746F2C6090A200CBDC72 /* JSONConverter.swift */; };
 		B34FB8742CBE2282000D8B7A /* PersonalLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */; };
@@ -138,6 +140,8 @@
 		B33536F82CC62E9000468A95 /* BottomSheetViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "\U0010BottomSheetViewContoller.swift"; sourceTree = "<group>"; };
 		B33536FA2CC6391000468A95 /* SelectDestinationBottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDestinationBottomViewController.swift; sourceTree = "<group>"; };
 		B33537022CC7590800468A95 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		B33537042CC766D200468A95 /* SearchedDestinationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedDestinationCollectionView.swift; sourceTree = "<group>"; };
+		B33537062CC7671D00468A95 /* SearchedDestinationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedDestinationCell.swift; sourceTree = "<group>"; };
 		B335746D2C608FB100CBDC72 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B335746F2C6090A200CBDC72 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		B34FB8732CBE2282000D8B7A /* PersonalLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalLoginViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +322,8 @@
 		B333F3A92C4F478C00495539 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B33537062CC7671D00468A95 /* SearchedDestinationCell.swift */,
+				B33537042CC766D200468A95 /* SearchedDestinationCollectionView.swift */,
 				B33537022CC7590800468A95 /* CircularProgressView.swift */,
 				B33536F82CC62E9000468A95 /* BottomSheetViewContoller.swift */,
 				B33536F62CC0F59800468A95 /* MyDestinationEmptyCell.swift */,
@@ -638,6 +644,7 @@
 				B33574702C6090A200CBDC72 /* JSONConverter.swift in Sources */,
 				B33536DD2CBF553400468A95 /* SetDestinationViewController.swift in Sources */,
 				B33536F12CC0DFFD00468A95 /* SetDestinationViewModel.swift in Sources */,
+				B33537072CC7672100468A95 /* SearchedDestinationCell.swift in Sources */,
 				B34FB87A2CBE4F45000D8B7A /* UserInfoManager.swift in Sources */,
 				B33536E12CBF68DB00468A95 /* MyDestinationCell.swift in Sources */,
 				B37224592C539DC9008CAB2F /* JupiterServiceViewController.swift in Sources */,
@@ -651,6 +658,7 @@
 				B3A1E6F02C2156F3008FA57A /* UIViewExtension.swift in Sources */,
 				B333F3B72C4F4F1400495539 /* DestinationView.swift in Sources */,
 				B33536DF2CBF686000468A95 /* MyDestinationView.swift in Sources */,
+				B33537052CC766D800468A95 /* SearchedDestinationCollectionView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				B35A9ED52C5782F10008F3FE /* ImageCacheManager.swift in Sources */,
 				B3BA95F72BFF26D1002625FA /* VGSViewController.swift in Sources */,

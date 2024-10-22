@@ -62,10 +62,6 @@ class MyDestinationView: UIView {
                 self?.showMyDestinationButton.isSelected.toggle()
             }
             .disposed(by: disposeBag)
-        
-//        showMyDestinationButton.rx.tap
-//            .bind(to: showMyDestinationButtonTapped)
-//            .disposed(by: disposeBag)
     }
 }
 
