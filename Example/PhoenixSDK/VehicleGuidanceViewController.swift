@@ -123,7 +123,7 @@ class VehicleGuidanceViewController: UIViewController, KNNaviView_GuideStateDele
     func naviViewPopupOpenCheck(_ aOpen: Bool) {}
     func naviViewIsArrival(_ aIsArrival: Bool) {}
     func naviViewGuideEnded(_ aNaviView: KNNaviView) {
-        print(getLocalTimeString() + " , (Phoenix) : guide end")
+        print(getLocalTimeString() + " , (Phoenix) Guide End")
         self.tapBackButton()
     }
     func naviViewGuideState(_ aGuideState: KNGuideState) {}
