@@ -9,6 +9,7 @@ class AddDestinationViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var topView = TopView(title: "")
     private lazy var dialogView = DialogView()
+    var isAlreadyHas: Bool = false
     
     private let explainLabelLine1 = UILabel().then {
         $0.font = UIFont.pretendardSemiBold(size: 25)
@@ -89,10 +90,22 @@ class AddDestinationViewController: UIViewController, UITextFieldDelegate {
         
         addButton.addTarget(self, action: #selector(addButtonTouchDown), for: .touchDown)
         addButton.addTarget(self, action: #selector(addButtonTouchUp), for: [.touchUpInside, .touchUpOutside])
+        
+        dialogView.confirmButtonTapped
+            .subscribe(onNext: { [weak self] in
+                self?.tapDialogConfirmButton()
+            }).disposed(by: disposeBag)
     }
         
     private func tapBackButton() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func tapDialogConfirmButton() {
+        if self.isAlreadyHas {
+            self.tapBackButton()
+            self.isAlreadyHas = false
+        }
     }
     
     private func addMyDestination() {
@@ -115,8 +128,10 @@ class AddDestinationViewController: UIViewController, UITextFieldDelegate {
                             dialogView.toggleDialogViewHidden()
                         } else {
                             // 성공
-                            DestinationManager.shared.makeDestinationInformationList(outputSecotors: outputSectors)
-                            dialogView.changeDialogInformation(message: "목적지 등록 성공", buttonColor: .black)
+                            let isAlreadyHas = DestinationManager.shared.makeDestinationInformationList(outputSectors: outputSectors)
+                            self.isAlreadyHas = isAlreadyHas
+                            let message = isAlreadyHas ? "이미 등록된 목적지" : "목적지 등록 성공"
+                            dialogView.changeDialogInformation(message: message, buttonColor: .black)
                             dialogView.toggleDialogViewHidden()
                         }
                     } else {

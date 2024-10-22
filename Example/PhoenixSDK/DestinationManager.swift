@@ -21,17 +21,22 @@ public class DestinationManager {
         return self.destinationInfoList
     }
     
-    public func makeDestinationInformationList(outputSecotors: OutputSectors) {
+    public func makeDestinationInformationList(outputSectors: OutputSectors) -> Bool {
+        var isAlreadyHas: Bool = false
         var loadedDestinationInfoList = [DestinationInformation]()
         
-        let userGroupName = outputSecotors.user_group_name
-        let sectors = outputSecotors.sectors
+        let userGroupName = outputSectors.user_group_name
+        
+        var destinationCounts = 0
+        var alreadyHasCount = 0
+        let sectors = outputSectors.sectors
         for sector in sectors {
             let buildings = sector.buildings
             for building in buildings {
                 // sector -> building
                 let destination = DestinationInformation(name: "\(sector.name) \(building.name)", address: building.address, coord: DestinationCoord(latitude: building.latitude, longitude: building.longitude), description: building.description)
                 loadedDestinationInfoList.append(destination)
+                destinationCounts += 1
             }
         }
         
@@ -40,14 +45,22 @@ public class DestinationManager {
             let isItemAlreadyInList = self.destinationInfoList.contains { myItem in
                 return myItem.name == loadedItem.name && myItem.address == loadedItem.address
             }
-            if !isItemAlreadyInList {
+            if isItemAlreadyInList {
+                alreadyHasCount += 1
+            } else {
                 newItemList.append(loadedItem)
             }
+        }
+        
+        if alreadyHasCount == destinationCounts {
+            isAlreadyHas = true
         }
 
         self.destinationInfoList += newItemList
         print("(Phoenix) Destination List : \(self.destinationInfoList)")
         self.saveDestinationInformationList()
+        
+        return isAlreadyHas
     }
     
     public func saveDestinationInformationList() {

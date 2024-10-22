@@ -44,6 +44,10 @@ class DialogView: UIView {
         $0.titleLabel?.font = UIFont.pretendardBold(size: 16)
     }
     
+    var confirmButtonTapped: Observable<Void> {
+        return confirmButton.rx.tap.asObservable()
+    }
+    
     private let disposeBag = DisposeBag()
     
     init() {
