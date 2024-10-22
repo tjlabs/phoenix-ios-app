@@ -37,6 +37,7 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
+        view.alignment = .fill
         view.spacing = 10
         return view
     }()
@@ -63,16 +64,14 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
     
     lazy var stackViewTitle: UIStackView = {
         let stackView = UIStackView()
-//        stackView.backgroundColor = .yellow
         stackView.axis = .horizontal
         stackView.alignment = .fill
 //        stackView.distribution = .fillProportionally
         stackView.spacing = 10
-        stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(serviceAvailabilityLabel)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    
     
     // MARK: - Setup
     override func viewDidLoad() {
@@ -85,6 +84,9 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
     
     private func setupView() {
         contentStackView.addArrangedSubview(stackViewTitle)
+        stackViewTitle.addArrangedSubview(nameLabel)
+        stackViewTitle.addArrangedSubview(serviceAvailabilityLabel)
+        
         contentStackView.addArrangedSubview(descriptionLabel)
         contentStackView.addArrangedSubview(dismissButton)
         
@@ -101,6 +103,7 @@ class SelectDestinationBottomViewController: BottomSheetViewController {
         }
         
         serviceAvailabilityLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
             make.width.equalTo(130)
         }
         
