@@ -1,15 +1,26 @@
 import RxSwift
 import RxCocoa
 
+let TIMEOUT_VALUE_POST = 2.0
+
 class SetDestinationViewModel {
+    // My
     let destinationInfoList = BehaviorRelay<[DestinationInformation]>(value: [])
     let selectedDestination = PublishRelay<DestinationInformation?>()
+    
+    // Search
+    let searchedDestinationInfoList = BehaviorRelay<[DestinationInformation]>(value: [])
+    let selectedSearchedDestination = PublishRelay<DestinationInformation?>()
     
     private let disposeBag = DisposeBag()
 
     init() {
         DestinationManager.shared.destinationInfoListObservable
             .bind(to: destinationInfoList)
+            .disposed(by: disposeBag)
+        
+        DestinationManager.shared.searchedDestinationInfoListObservable
+            .bind(to: searchedDestinationInfoList)
             .disposed(by: disposeBag)
     }
 
@@ -28,5 +39,10 @@ class SetDestinationViewModel {
         } else {
             selectedDestination.accept(nil)
         }
+    }
+    
+    // Search
+    func searchDestinationList(keyword: String) {
+        DestinationManager.shared.searchDestinationList(keyword: keyword)
     }
 }

@@ -54,6 +54,7 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
         $0.font = UIFont.pretendardRegular(size: 17)
         $0.textAlignment = .left
         $0.textColor = .black
+        $0.returnKeyType = .search
     }
     
     private let viewModel = SetDestinationViewModel()
@@ -71,12 +72,16 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let keyword = textField.text {
+            viewModel.searchDestinationList(keyword: keyword)
+        }
         textField.resignFirstResponder()
+        
         return true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-             self.view.endEditing(true)
+        self.view.endEditing(true)
     }
 
     private func bindActions() {
@@ -120,6 +125,11 @@ class SetDestinationViewController: UIViewController, UITextFieldDelegate {
                 guard let destination = destination else { return }
                 self?.handleDestinationSelection(destination)
             }).disposed(by: disposeBag)
+        
+        viewModel.searchedDestinationInfoList
+            .bind(to: searchedDestinationCollectionView.destinationInfoRelay)
+            .disposed(by: disposeBag)
+
     }
     
     private func toggleCollectionViewHeight() {

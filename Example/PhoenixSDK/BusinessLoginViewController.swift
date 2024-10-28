@@ -93,7 +93,16 @@ class BusinessLoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if textField == self.nameTextField {
+            self.carNumberTextField.becomeFirstResponder()
+        } else if textField == self.carNumberTextField {
+            self.companyTextField.becomeFirstResponder()
+        } else if textField == self.companyTextField {
+            self.phoneNumberTextField.becomeFirstResponder()
+        } else if textField == self.phoneNumberTextField {
+            textField.resignFirstResponder()
+        }
+//        textField.resignFirstResponder()
         return true
     }
     

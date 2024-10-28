@@ -102,7 +102,12 @@ class PersonalLoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if textField == self.emailTextField {
+            self.passwordTextField.becomeFirstResponder()
+        } else if textField == self.passwordTextField {
+            textField.resignFirstResponder()
+        }
+//        textField.resignFirstResponder()
         return true
     }
     

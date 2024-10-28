@@ -134,7 +134,7 @@ class VehicleGuidanceViewController: UIViewController, KNNaviView_GuideStateDele
     var userInfo = UserInfo(name: "", company: "", carNumber: "")
     var destinationInfo = DestinationInformation(name: "", address: "", coord: DestinationCoord(latitude: 0, longitude: 0), description: "")
     
-    var kakaoApiKey: String = ""
+    var kakaoNatvieAppiKey: String = ""
     var routePriority: KNRoutePriority = .time
     var routeAvoidOption: KNRouteAvoidOption = .none
     var routeGuidance = KNGuidance()
@@ -199,10 +199,12 @@ class VehicleGuidanceViewController: UIViewController, KNNaviView_GuideStateDele
     }
     
     private func authKNSDK(completion: @escaping (KNError?) -> Void) {
-        if let apiKey = Bundle.main.object(forInfoDictionaryKey: "KAKAO_API_KEY") as? String {
-            self.kakaoApiKey = apiKey
+        if let apiKey = Bundle.main.object(forInfoDictionaryKey: "KAKAO_NATIVE_APP_KEY") as? String {
+            self.kakaoNatvieAppiKey = apiKey
+        } else {
+            completion(nil)
         }
-        KNSDK.sharedInstance()?.initialize(withAppKey: self.kakaoApiKey, clientVersion: "1.0", userKey: userInfo.name) { knError in
+        KNSDK.sharedInstance()?.initialize(withAppKey: self.kakaoNatvieAppiKey, clientVersion: "1.0", userKey: userInfo.name) { knError in
             completion(knError)
         }
     }

@@ -1,7 +1,5 @@
-
 import Foundation
 import UIKit
-
 import RxSwift
 import RxCocoa
 import SnapKit
@@ -22,17 +20,12 @@ class SearchedDestinationCollectionView: UIView {
         return collectionView
     }()
 
-    private var destinationInfoList: [DestinationInformation] = []
-    
     private let disposeBag = DisposeBag()
     
     init() {
         super.init(frame: .zero)
         setupLayout()
-        bindActions()
         bindCollectionView()
-        
-        initDestinationInfoList()
     }
     
     required init?(coder: NSCoder) {
@@ -47,35 +40,19 @@ class SearchedDestinationCollectionView: UIView {
         }
     }
     
-    private func initDestinationInfoList() {
-        let latitude_start = 37.495758
-        let longitude_start = 127.038249
-        let destination = DestinationInformation(name: "티제이랩스", address: "현승빌딩 7F", coord: DestinationCoord(latitude: latitude_start, longitude: longitude_start), description: "서울시 강남구 역삼로 175 현승빌딩 7층")
-        
-        for _ in 0..<5 {
-            self.destinationInfoList.append(destination)
-        }
-//        print("(Phoenix) Search : destinationInfoList = \(destinationInfoList)")
-    }
-    
-    private func bindActions() {
-
-    }
-    
     private func bindCollectionView() {
         destinationInfoRelay
-            .subscribe(onNext: { [weak self] destinations in
-                self?.destinationInfoList = destinations
+            .observe(on: MainScheduler.instance)
+            .bind(onNext: { [weak self] _ in
                 self?.collectionView.reloadData()
             })
             .disposed(by: disposeBag)
     }
     
     public func getDestinationInfoListCount() -> Int {
-        return self.destinationInfoList.count
+        return destinationInfoRelay.value.count
     }
 }
-
 
 extension SearchedDestinationCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -89,14 +66,14 @@ extension SearchedDestinationCollectionView: UICollectionViewDelegateFlowLayout 
 
 extension SearchedDestinationCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return destinationInfoList.count
+        return destinationInfoRelay.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchedDestinationCell.identifier, for: indexPath) as? SearchedDestinationCell else {
             return UICollectionViewCell()
         }
-        let destination = destinationInfoList[indexPath.item]
+        let destination = destinationInfoRelay.value[indexPath.item]
         cell.configure(with: destination)
         return cell
     }
